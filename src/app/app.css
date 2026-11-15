@@ -1,0 +1,23 @@
+.loading-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-content img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  margin: 0 auto 15px;
+}
+
+.loading-content p {
+  color: #24313b;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.loading-content small {
+  color: #7b8794;
+  font-size: 13px;
+}

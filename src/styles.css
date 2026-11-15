@@ -1,3 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import "flowbite/src/themes/default";
+@source "../node_modules/flowbite";
+@plugin "flowbite/plugin";
 @import 'tailwindcss';
+@import 'ngx-toastr/toastr';
+@import './styles/font_style.css';
+body{
+    font-family: 'exo';
+    font-weight: 700;
+}
+/* FreshCart Toastr */
+.freshcart-toast.toast-error {
+  background-color: #fff !important;
+  color: #24313b !important;
+  border-left: 5px solid #e53935;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  opacity: 1 !important;
+  padding: 15px 15px 15px 50px !important;
+}
+
+.freshcart-toast.toast-error .toast-title {
+  color: #e53935;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.freshcart-toast.toast-error .toast-message {
+  color: #24313b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.freshcart-toast .toast-progress {
+  background-color: #e53935;
+  opacity: 1;
+}
+
+.freshcart-toast .toast-close-button {
+  color: #24313b;
+}

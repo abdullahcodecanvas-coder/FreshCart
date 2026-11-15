@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'exo';
+    src: url('/fonts/Exo-Medium.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'exo';
+    src: url('/fonts/Exo-SemiBold.ttf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'exo';
+    src: url('/fonts/Exo-Bold.ttf');
+    font-weight: 700;
+}
