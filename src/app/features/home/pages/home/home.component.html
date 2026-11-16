@@ -1,3 +1,20 @@
-<app-slider-home></app-slider-home>
-<app-categrey-home></app-categrey-home>
-<app-product-home></app-product-home>
+
+@defer (on viewport) {
+  <app-slider-home></app-slider-home>
+} @placeholder {
+  <div class="slider-placeholder"></div>
+}
+
+
+@defer (on viewport) {
+  <app-categrey-home></app-categrey-home>
+} @placeholder {
+  <div class="categories-placeholder"></div>
+}
+
+
+@defer (on viewport) {
+  <app-product-home></app-product-home>
+} @placeholder {
+  <div class="products-placeholder"></div>
+}

@@ -71,5 +71,28 @@
   },"SECTIONS20": {
     "YOU_MAY_ALSO": "You May Also",
     "LIKE": "Like"
+  },
+  "homeSlider": {
+    "slide1": {
+      "alt": "Fast & Free Delivery",
+      "title": "Fast & Free Delivery",
+      "subtitle": "Same day delivery available",
+      "primaryBtn": "Order Now",
+      "secondaryBtn": "Delivery Info"
+    },
+    "slide2": {
+      "alt": "Premium Quality Guaranteed",
+      "title": "Premium Quality Guaranteed",
+      "subtitle": "Fresh from farm to your table",
+      "primaryBtn": "Shop Now",
+      "secondaryBtn": "Learn More"
+    },
+    "slide3": {
+      "alt": "Fresh Products Delivered to your Door",
+      "title": "Fresh Products Delivered to your Door",
+      "subtitle": "Get 20% off your first order",
+      "primaryBtn": "Shop Now",
+      "secondaryBtn": "View Deals"
+    }
   }
 }
