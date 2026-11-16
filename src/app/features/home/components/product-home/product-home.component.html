@@ -1,0 +1,11 @@
+<section class="container mx-auto py-2">
+<app-section-title 
+  [title]="'SECTIONS.FEATURED' | translate" 
+  [highlight]="'SECTIONS.PRODUCTS' | translate">
+</app-section-title>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+ @for (item of product(); track item._id) {
+ <app-cart-style [item]="item" ></app-cart-style>
+}
+</div>
+</section>

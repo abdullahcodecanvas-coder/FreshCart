@@ -64,6 +64,9 @@
       "cookiePolicy": "Cookie Policy"
     },
     "rights": "© {{ year }} FreshCart. All rights reserved."
+  },
+  "SECTIONS": {
+    "FEATURED": "Featured",
+    "PRODUCTS": "Products"
   }
-  
 }
