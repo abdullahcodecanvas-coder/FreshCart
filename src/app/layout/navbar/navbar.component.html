@@ -1,1 +1,161 @@
-<p>navbar works!</p>
+<header class="font-exo bg-white sticky top-0 z-50">
+  <!-- Top info bar -->
+  <div class="hidden lg:block border-b border-gray-100 text-sm text-gray-600">
+    <div class="w-full px-6 h-10 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-truck text-green-600"></i> {{ 'header.topBar.freeShipping' | translate }}
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-gift text-green-600"></i> {{ 'header.topBar.newArrivals' | translate }}
+        </span>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <a href="tel:+18001234567" class="flex items-center gap-2 hover:text-green-600">
+          <i class="fa-solid fa-phone"></i> {{ 'header.topBar.phone' | translate }}
+        </a>
+        <a href="mailto:support@freshcart.com" class="flex items-center gap-2 hover:text-green-600">
+          <i class="fa-regular fa-envelope"></i> {{ 'header.topBar.email' | translate }}
+        </a>
+        <span class="h-4 w-px bg-gray-200"></span>
+        <a routerLink="/login" class="flex items-center gap-1.5 hover:text-green-600">
+          <i class="fa-regular fa-user"></i> {{ 'header.topBar.signIn' | translate }}
+        </a>
+        <a routerLink="/register" class="flex items-center gap-1.5 hover:text-green-600">
+          <i class="fa-solid fa-user-plus"></i> {{ 'header.topBar.signUp' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main navbar -->
+  <nav class="border-b border-gray-200 shadow-sm">
+    <div class="w-full px-6 h-[72px] flex items-center justify-between gap-6">
+
+      <!-- Logo -->
+      <a routerLink="/home" class="flex items-center gap-2 shrink-0">
+        <i class="fa-solid fa-cart-shopping text-2xl text-green-600"></i>
+        <span class="text-2xl font-bold text-gray-900">{{ 'header.brandName' | translate }}</span>
+      </a>
+
+      <!-- Search -->
+      <form class="hidden md:flex w-[330px] shrink-0 items-center bg-gray-50 border border-gray-200 rounded-full ps-5 pe-1.5 py-1.5 focus-within:border-green-500">
+        <input
+          type="text"
+          [placeholder]="'header.searchPlaceholder' | translate"
+          class="flex-1 min-w-0 bg-transparent border-0 ring-0 shadow-none outline-none focus:outline-none focus:ring-0 focus:border-0 text-sm text-gray-700 placeholder:text-gray-400"
+        />
+        <button type="submit" class="size-9 shrink-0 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+      </form>
+
+      <!-- Links (desktop) -->
+      <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-800">
+        <li>
+          <a routerLink="/home" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.home' | translate }}</a>
+        </li>
+
+        <li>
+          <a routerLink="/products" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.shop' | translate }}</a>
+        </li>
+
+        <!-- Categories dropdown -->
+        <li class="relative">
+          <button (click)="toggleCategories($event)" class="flex items-center gap-1.5 hover:text-green-600 transition">
+            {{ 'header.nav.categories' | translate }}
+            <i class="fa-solid fa-chevron-down text-xs transition-transform" [class.rotate-180]="categoriesOpen()"></i>
+          </button>
+
+          @if (categoriesOpen()) {
+            <ul class="absolute top-full start-0 mt-4 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50">
+              <li>
+                <a routerLink="/categories" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.allCategories' | translate }}</a>
+              </li>
+              <li>
+                <a routerLink="/categories/electronics" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.electronics' | translate }}</a>
+              </li>
+              <li>
+                <a routerLink="/categories/women" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.womensFashion' | translate }}</a>
+              </li>
+              <li>
+                <a routerLink="/categories/men" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.mensFashion' | translate }}</a>
+              </li>
+              <li>
+                <a routerLink="/categories/beauty" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.beautyAndHealth' | translate }}</a>
+              </li>
+            </ul>
+          }
+        </li>
+
+        <li>
+          <a routerLink="/brands" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.brands' | translate }}</a>
+        </li>
+      </ul>
+
+      <!-- Right actions -->
+      <div class="flex items-center gap-4">
+        <!-- Support -->
+        <div class="hidden xl:flex items-center gap-3 pe-4 border-e border-gray-200">
+          <span class="size-11 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
+            <i class="fa-solid fa-headset"></i>
+          </span>
+          <div class="leading-tight">
+            <p class="text-xs text-gray-500">{{ 'header.support.label' | translate }}</p>
+            <p class="text-sm font-semibold text-gray-900">{{ 'header.support.value' | translate }}</p>
+          </div>
+        </div>
+
+        <!-- Language toggle -->
+        <button
+          (click)="toggleLang()"
+          class="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-green-600 border border-gray-200 hover:border-green-500 rounded-full px-3.5 py-1.5 transition"
+        >
+          <i class="fa-solid fa-globe text-xs"></i>
+          {{ lang() === 'en' ? 'العربية' : 'English' }}
+        </button>
+
+        <a routerLink="/wishlist" class="text-gray-600 hover:text-green-600 text-xl">
+          <i class="fa-regular fa-heart"></i>
+        </a>
+
+        <a routerLink="/cart" class="relative text-gray-600 hover:text-green-600 text-xl">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+
+        <a routerLink="/login" class="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-full transition">
+          <i class="fa-regular fa-user text-sm"></i> {{ 'header.signIn' | translate }}
+        </a>
+
+        <!-- Mobile toggle -->
+        <button (click)="mobileOpen.set(!mobileOpen())" class="lg:hidden text-2xl text-gray-700">
+          <i class="fa-solid" [class.fa-bars]="!mobileOpen()" [class.fa-xmark]="mobileOpen()"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    @if (mobileOpen()) {
+      <div class="lg:hidden border-t border-gray-100 px-6 py-4 space-y-1 bg-white">
+        <a routerLink="/home" class="block py-2 font-medium text-gray-800 hover:text-green-600">{{ 'header.nav.home' | translate }}</a>
+        <a routerLink="/products" class="block py-2 font-medium text-gray-800 hover:text-green-600">{{ 'header.nav.shop' | translate }}</a>
+        <a routerLink="/brands" class="block py-2 font-medium text-gray-800 hover:text-green-600">{{ 'header.nav.brands' | translate }}</a>
+
+        <p class="pt-3 pb-1 text-xs uppercase tracking-wide text-gray-400">{{ 'header.nav.categories' | translate }}</p>
+        <a routerLink="/categories" class="block py-1.5 text-gray-600 hover:text-green-600">{{ 'header.categoriesMenu.allCategories' | translate }}</a>
+        <a routerLink="/categories/electronics" class="block py-1.5 text-gray-600 hover:text-green-600">{{ 'header.categoriesMenu.electronics' | translate }}</a>
+        <a routerLink="/categories/women" class="block py-1.5 text-gray-600 hover:text-green-600">{{ 'header.categoriesMenu.womensFashion' | translate }}</a>
+        <a routerLink="/categories/men" class="block py-1.5 text-gray-600 hover:text-green-600">{{ 'header.categoriesMenu.mensFashion' | translate }}</a>
+        <a routerLink="/categories/beauty" class="block py-1.5 text-gray-600 hover:text-green-600">{{ 'header.categoriesMenu.beautyAndHealth' | translate }}</a>
+
+        <button (click)="toggleLang()" class="mt-3 flex items-center gap-2 py-2 font-medium text-gray-800 hover:text-green-600">
+          <i class="fa-solid fa-globe"></i>
+          {{ lang() === 'en' ? 'العربية' : 'English' }}
+        </button>
+
+        <a routerLink="/login" class="mt-3 flex justify-center bg-green-600 text-white font-semibold py-2.5 rounded-full">{{ 'header.signIn' | translate }}</a>
+      </div>
+    }
+  </nav>
+</header>

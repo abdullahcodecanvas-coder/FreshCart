@@ -1,0 +1,69 @@
+{
+  "header": {
+    "topBar": {
+      "freeShipping": "شحن مجاني للطلبات بقيمة 500 جنيه مصري",
+      "newArrivals": "وصول منتجات جديدة يومياً",
+      "phone": "+1 (800) 123-4567",
+      "email": "support@freshcart.com",
+      "signIn": "تسجيل الدخول",
+      "signUp": "إنشاء حساب"
+    },
+    "brandName": "فريش كارت",
+    "searchPlaceholder": "ابحث عن المنتجات",
+    "nav": {
+      "home": "الرئيسية",
+      "shop": "المتجر",
+      "categories": "الفئات",
+      "brands": "العلامات التجارية"
+    },
+    "categoriesMenu": {
+      "allCategories": "جميع الفئات",
+      "electronics": "الإلكترونيات",
+      "womensFashion": "أزياء نسائية",
+      "mensFashion": "أزياء رجالية",
+      "beautyAndHealth": "الجمال والصحة"
+    },
+    "support": {
+      "label": "الدعم الفني",
+      "value": "مساعدة على مدار الساعة 24/7"
+    },
+    "signIn": "تسجيل الدخول"
+  },
+  "footer": {
+    "features": {
+      "freeShipping": "شحن مجاني",
+      "freeShippingDesc": "للطلبات التي تزيد عن 500 جنيه مصري",
+      "easyReturns": "إرجاع سهل",
+      "easyReturnsDesc": "سياسة إرجاع خلال 14 يوماً",
+      "securePayment": "دفع آمن",
+      "securePaymentDesc": "دفع آمن 100%",
+      "support247": "دعم على مدار الساعة",
+      "support247Desc": "اتصل بنا في أي وقت"
+    },
+    "brandDesc": "فريش كارت هو وجهتك الشاملة لمنتجات عالية الجودة. من الأزياء إلى الإلكترونيات، نقدم لك أفضل العلامات التجارية بأسعار تنافسية مع تجربة تسوق سلسة.",
+    "address": "123 شارع التجارة، نيويورك، NY 10001",
+    "columns": {
+      "shop": "المتجر",
+      "account": "الحساب",
+      "support": "الدعم",
+      "legal": "القانونية"
+    },
+    "links": {
+      "allProducts": "جميع المنتجات",
+      "myAccount": "حسابي",
+      "orderHistory": "سجل الطلبات",
+      "wishlist": "المفضلة",
+      "shoppingCart": "سلة التسوق",
+      "createAccount": "إنشاء حساب",
+      "contactUs": "اتصل بنا",
+      "helpCenter": "مركز المساعدة",
+      "shippingInfo": "معلومات الشحن",
+      "returnsAndRefunds": "الإرجاع والاستبدال",
+      "trackOrder": "تتبع الطلب",
+      "privacyPolicy": "سياسة الخصوصية",
+      "termsOfService": "شروط الخدمة",
+      "cookiePolicy": "سياسة ملفات تعريف الارتباط"
+    },
+    "rights": "© {{ year }} فريش كارت. جميع الحقوق محفوظة."
+  }
+}

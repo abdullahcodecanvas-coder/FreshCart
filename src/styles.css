@@ -6,8 +6,8 @@
 @import './styles/font_style.css';
 body{
     font-family: 'exo';
-    font-weight: 700;
 }
+
 /* FreshCart Toastr */
 .freshcart-toast.toast-error {
   background-color: #fff !important;

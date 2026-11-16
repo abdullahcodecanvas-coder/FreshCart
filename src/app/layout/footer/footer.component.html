@@ -1,1 +1,155 @@
-<p>footer works!</p>
+<footer class="font-exo">
+  <!-- Features strip -->
+  <div class="bg-green-50">
+    <div class="w-full px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex items-center gap-3">
+        <span class="size-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-truck"></i>
+        </span>
+        <div class="leading-tight">
+          <p class="font-semibold text-gray-900 text-sm">{{ 'footer.features.freeShipping' | translate }}</p>
+          <p class="text-xs text-gray-500">{{ 'footer.features.freeShippingDesc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="size-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-rotate-left"></i>
+        </span>
+        <div class="leading-tight">
+          <p class="font-semibold text-gray-900 text-sm">{{ 'footer.features.easyReturns' | translate }}</p>
+          <p class="text-xs text-gray-500">{{ 'footer.features.easyReturnsDesc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="size-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-shield-halved"></i>
+        </span>
+        <div class="leading-tight">
+          <p class="font-semibold text-gray-900 text-sm">{{ 'footer.features.securePayment' | translate }}</p>
+          <p class="text-xs text-gray-500">{{ 'footer.features.securePaymentDesc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="size-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-headset"></i>
+        </span>
+        <div class="leading-tight">
+          <p class="font-semibold text-gray-900 text-sm">{{ 'footer.features.support247' | translate }}</p>
+          <p class="text-xs text-gray-500">{{ 'footer.features.support247Desc' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main footer -->
+  <div class="bg-[#0f172a] text-gray-400">
+    <div class="w-full px-6 pt-12 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.9fr_1fr_1fr_1fr_1fr] gap-10">
+
+      <!-- Brand -->
+      <div>
+        <a routerLink="/home" class="inline-flex items-center gap-2 bg-white rounded-lg px-4 py-2">
+          <i class="fa-solid fa-cart-shopping text-2xl text-green-600"></i>
+          <span class="text-2xl font-bold text-gray-900">{{ 'header.brandName' | translate }}</span>
+        </a>
+
+        <p class="mt-6 text-sm leading-relaxed max-w-sm">
+          {{ 'footer.brandDesc' | translate }}
+        </p>
+
+        <ul class="mt-6 space-y-3 text-sm">
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-phone text-green-500 w-4"></i>
+            <a href="tel:+18001234567" class="hover:text-white transition">{{ 'header.topBar.phone' | translate }}</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-envelope text-green-500 w-4"></i>
+            <a href="mailto:support@freshcart.com" class="hover:text-white transition">{{ 'header.topBar.email' | translate }}</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-location-dot text-green-500 w-4"></i>
+            <span>{{ 'footer.address' | translate }}</span>
+          </li>
+        </ul>
+
+        <div class="mt-6 flex items-center gap-3">
+          <a href="#" aria-label="Facebook" class="size-10 rounded-full bg-slate-800 hover:bg-green-600 hover:text-white flex items-center justify-center transition">
+            <i class="fa-brands fa-facebook-f text-sm"></i>
+          </a>
+          <a href="#" aria-label="Twitter" class="size-10 rounded-full bg-slate-800 hover:bg-green-600 hover:text-white flex items-center justify-center transition">
+            <i class="fa-brands fa-twitter text-sm"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="size-10 rounded-full bg-slate-800 hover:bg-green-600 hover:text-white flex items-center justify-center transition">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="#" aria-label="YouTube" class="size-10 rounded-full bg-slate-800 hover:bg-green-600 hover:text-white flex items-center justify-center transition">
+            <i class="fa-brands fa-youtube text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-5">{{ 'footer.columns.shop' | translate }}</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a routerLink="/products" class="hover:text-white transition">{{ 'footer.links.allProducts' | translate }}</a></li>
+          <li><a routerLink="/categories" class="hover:text-white transition">{{ 'header.nav.categories' | translate }}</a></li>
+          <li><a routerLink="/brands" class="hover:text-white transition">{{ 'header.nav.brands' | translate }}</a></li>
+          <li><a routerLink="/categories/electronics" class="hover:text-white transition">{{ 'header.categoriesMenu.electronics' | translate }}</a></li>
+          <li><a routerLink="/categories/men" class="hover:text-white transition">{{ 'header.categoriesMenu.mensFashion' | translate }}</a></li>
+          <li><a routerLink="/categories/women" class="hover:text-white transition">{{ 'header.categoriesMenu.womensFashion' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Account -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-5">{{ 'footer.columns.account' | translate }}</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a routerLink="/profile" class="hover:text-white transition">{{ 'footer.links.myAccount' | translate }}</a></li>
+          <li><a routerLink="/orders" class="hover:text-white transition">{{ 'footer.links.orderHistory' | translate }}</a></li>
+          <li><a routerLink="/wishlist" class="hover:text-white transition">{{ 'footer.links.wishlist' | translate }}</a></li>
+          <li><a routerLink="/cart" class="hover:text-white transition">{{ 'footer.links.shoppingCart' | translate }}</a></li>
+          <li><a routerLink="/login" class="hover:text-white transition">{{ 'header.topBar.signIn' | translate }}</a></li>
+          <li><a routerLink="/register" class="hover:text-white transition">{{ 'footer.links.createAccount' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-5">{{ 'footer.columns.support' | translate }}</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a routerLink="/contact" class="hover:text-white transition">{{ 'footer.links.contactUs' | translate }}</a></li>
+          <li><a routerLink="/help" class="hover:text-white transition">{{ 'footer.links.helpCenter' | translate }}</a></li>
+          <li><a routerLink="/shipping" class="hover:text-white transition">{{ 'footer.links.shippingInfo' | translate }}</a></li>
+          <li><a routerLink="/returns" class="hover:text-white transition">{{ 'footer.links.returnsAndRefunds' | translate }}</a></li>
+          <li><a routerLink="/track-order" class="hover:text-white transition">{{ 'footer.links.trackOrder' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-5">{{ 'footer.columns.legal' | translate }}</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a routerLink="/privacy" class="hover:text-white transition">{{ 'footer.links.privacyPolicy' | translate }}</a></li>
+          <li><a routerLink="/terms" class="hover:text-white transition">{{ 'footer.links.termsOfService' | translate }}</a></li>
+          <li><a routerLink="/cookies" class="hover:text-white transition">{{ 'footer.links.cookiePolicy' | translate }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-slate-800">
+      <div class="w-full px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <p>{{ 'footer.rights' | translate: { year: year } }}</p>
+
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-credit-card"></i> Visa</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-credit-card"></i> Mastercard</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-credit-card"></i> PayPal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
