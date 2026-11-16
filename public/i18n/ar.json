@@ -68,5 +68,8 @@
   },"SECTIONS": {
     "FEATURED": "المنتجات",
     "PRODUCTS": "المميزة"
+  },"SECTIONS20": {
+    "YOU_MAY_ALSO": "قد يعجبك",
+    "LIKE": "أيضاً"
   }
 }

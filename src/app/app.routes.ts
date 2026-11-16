@@ -14,7 +14,7 @@ export const routes: Routes = [
     title: 'FreshCart | Shop',
   },
   {
-    path: 'shop/:id',
+    path: 'shop/:id/:slug',
     loadComponent: () =>
       import('./features/shop/pages/shopdetails/shopdetails.component').then(
         (m) => m.ShopdetailsComponent,

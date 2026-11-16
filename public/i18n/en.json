@@ -68,5 +68,8 @@
   "SECTIONS": {
     "FEATURED": "Featured",
     "PRODUCTS": "Products"
+  },"SECTIONS20": {
+    "YOU_MAY_ALSO": "You May Also",
+    "LIKE": "Like"
   }
 }
