@@ -93,5 +93,50 @@
       "primaryBtn": "تسوق الآن",
       "secondaryBtn": "عرض العروض"
     }
+  },
+  "categoriesSection": {
+    "title": "تسوق حسب",
+    "highlight": "الفئة",
+    "viewAll": "عرض كل الفئات",
+    "items": {
+      "music": "الموسيقى",
+      "mens": "أزياء الرجال",
+      "womens": "أزياء النساء",
+      "supermarket": "السوبر ماركت",
+      "baby": "الأطفال والألعاب",
+      "home": "المنزل",
+      "books": "الكتب",
+      "beauty": "الجمال والصحة",
+      "mobiles": "الهواتف المحمولة",
+      "electronics": "الإلكترونيات"
+    }
+  },"promoBanner": {
+    "leftCard": {
+      "tag": "🔥 عرض اليوم",
+      "title": "فواكه عضوية طازجة",
+      "subtitle": "احصل على خصم يصل إلى 40% على فواكه عضوية مختارة",
+      "discount": "خصم 40%",
+      "codeText": "استخدم الكود: ",
+      "code": "ORGANIC40",
+      "button": "تسوق الآن"
+    },
+    "rightCard": {
+      "tag": "✨ وصل حديثاً",
+      "title": "خضروات استوائية",
+      "subtitle": "اكتشف أحدث تشكيلة لدينا من الخضروات الفاخرة",
+      "discount": "خصم 25%",
+      "codeText": "استخدم الكود: ",
+      "code": "FRESH25",
+      "button": "استكشف الآن"
+    }
+  },"shop": {
+    "breadcrumb": {
+      "home": "الرئيسية"
+    },
+    "header": {
+      "title": "كل المنتجات",
+      "subtitle": "استكشف مجموعة منتجاتنا الكاملة"
+    }
   }
 }
+  

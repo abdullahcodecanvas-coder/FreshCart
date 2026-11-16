@@ -1,0 +1,71 @@
+<section class="container mx-auto px-6 py-10 overflow-hidden">
+  <div #wrapper class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Left card: يدخل من الشمال (او اليمين في وضع RTL) -->
+    <div
+      class="relative overflow-hidden rounded-2xl p-8 text-white min-h-[300px]
+             bg-gradient-to-br from-emerald-500 to-emerald-700
+             transition-all duration-1000 ease-out"
+      [class.opacity-0]="!visible()"
+      [class.-translate-x-full]="!visible()"
+      [class.rtl:translate-x-full]="!visible()"
+      [class.opacity-100]="visible()"
+      [class.translate-x-0]="visible()">
+
+      <span class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10"></span>
+      <span class="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/10"></span>
+
+      <span class="relative inline-flex items-center gap-2 bg-white/20 text-sm px-3 py-1 rounded-full">
+        {{ 'promoBanner.leftCard.tag' | translate }}
+      </span>
+      <h3 class="relative text-3xl font-bold mt-4">{{ 'promoBanner.leftCard.title' | translate }}</h3>
+      <p class="relative mt-2 text-white/90">{{ 'promoBanner.leftCard.subtitle' | translate }}</p>
+
+      <div class="relative flex items-center gap-4 mt-5">
+        <span class="text-3xl font-bold">{{ 'promoBanner.leftCard.discount' | translate }}</span>
+        <span class="text-sm text-white/80">
+          {{ 'promoBanner.leftCard.codeText' | translate }}<b class="text-white">{{ 'promoBanner.leftCard.code' | translate }}</b>
+        </span>
+      </div>
+
+      <button class="relative mt-6 bg-white text-emerald-700 font-semibold rounded-full px-6 py-3
+                     flex items-center gap-2 hover:gap-3 transition-all">
+        {{ 'promoBanner.leftCard.button' | translate }} <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
+      </button>
+    </div>
+
+    <!-- Right card: يدخل من اليمين (او الشمال في وضع RTL) -->
+    <div
+      class="relative overflow-hidden rounded-2xl p-8 text-white min-h-[300px]
+             bg-gradient-to-br from-orange-500 to-rose-500
+             transition-all duration-1000 ease-out"
+      [class.opacity-0]="!visible()"
+      [class.translate-x-full]="!visible()"
+      [class.rtl:-translate-x-full]="!visible()"
+      [class.opacity-100]="visible()"
+      [class.translate-x-0]="visible()">
+
+      <span class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10"></span>
+      <span class="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/10"></span>
+
+      <span class="relative inline-flex items-center gap-2 bg-white/20 text-sm px-3 py-1 rounded-full">
+        {{ 'promoBanner.rightCard.tag' | translate }}
+      </span>
+      <h3 class="relative text-3xl font-bold mt-4">{{ 'promoBanner.rightCard.title' | translate }}</h3>
+      <p class="relative mt-2 text-white/90">{{ 'promoBanner.rightCard.subtitle' | translate }}</p>
+
+      <div class="relative flex items-center gap-4 mt-5">
+        <span class="text-3xl font-bold">{{ 'promoBanner.rightCard.discount' | translate }}</span>
+        <span class="text-sm text-white/80">
+          {{ 'promoBanner.rightCard.codeText' | translate }}<b class="text-white">{{ 'promoBanner.rightCard.code' | translate }}</b>
+        </span>
+      </div>
+
+      <button class="relative mt-6 bg-white text-orange-600 font-semibold rounded-full px-6 py-3
+                     flex items-center gap-2 hover:gap-3 transition-all">
+        {{ 'promoBanner.rightCard.button' | translate }} <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
+      </button>
+    </div>
+
+  </div>
+</section>

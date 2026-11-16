@@ -54,11 +54,11 @@
       <!-- Links (desktop) -->
       <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-800">
         <li>
-          <a routerLink="/home" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.home' | translate }}</a>
+          <a routerLink="/" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.home' | translate }}</a>
         </li>
 
         <li>
-          <a routerLink="/products" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.shop' | translate }}</a>
+          <a routerLink="/shop" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.shop' | translate }}</a>
         </li>
 
         <!-- Categories dropdown -->
@@ -68,29 +68,28 @@
             <i class="fa-solid fa-chevron-down text-xs transition-transform" [class.rotate-180]="categoriesOpen()"></i>
           </button>
 
-          @if (categoriesOpen()) {
-            <ul class="absolute top-full start-0 mt-4 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50">
-              <li>
-                <a routerLink="/categories" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.allCategories' | translate }}</a>
-              </li>
-              <li>
-                <a routerLink="/categories/electronics" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.electronics' | translate }}</a>
-              </li>
-              <li>
-                <a routerLink="/categories/women" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.womensFashion' | translate }}</a>
-              </li>
-              <li>
-                <a routerLink="/categories/men" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.mensFashion' | translate }}</a>
-              </li>
-              <li>
-                <a routerLink="/categories/beauty" class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">{{ 'header.categoriesMenu.beautyAndHealth' | translate }}</a>
-              </li>
-            </ul>
-          }
+       @if (categoriesOpen()) {
+  <div class="absolute top-full start-0 mt-4 w-[36rem] max-w-[90vw] bg-white rounded-xl shadow-xl border border-gray-100 p-4 z-50">
+
+    <a routerLink="/shop" class="block rounded-lg px-4 py-2.5 mb-2 font-semibold text-green-600 hover:bg-green-50 transition">
+      All Categories
+    </a>
+
+    <ul class="grid grid-cols-2 gap-x-2 border-t border-gray-100 pt-2 max-h-64 overflow-y-auto">
+      @for (cat of subCategry(); track cat._id) {
+        <li>
+          <a [routerLink]="['/CategrySub', cat._id , cat.slug]" class="block rounded-lg px-4 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-600 transition">
+            {{ cat.name }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+}
         </li>
 
         <li>
-          <a routerLink="/brands" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.brands' | translate }}</a>
+          <a routerLink="/brand" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.brands' | translate }}</a>
         </li>
       </ul>
 
@@ -124,10 +123,10 @@
           <i class="fa-solid fa-cart-shopping"></i>
         </a>
 
-        <a routerLink="/login" class="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-full transition">
-          <i class="fa-regular fa-user text-sm"></i> {{ 'header.signIn' | translate }}
-        </a>
-
+      <a routerLink="/login" class="hidden sm:flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-full transition whitespace-nowrap">
+  <i class="fa-regular fa-user text-sm"></i>
+  <span>{{ 'header.signIn' | translate }}</span>
+</a>
         <!-- Mobile toggle -->
         <button (click)="mobileOpen.set(!mobileOpen())" class="lg:hidden text-2xl text-gray-700">
           <i class="fa-solid" [class.fa-bars]="!mobileOpen()" [class.fa-xmark]="mobileOpen()"></i>

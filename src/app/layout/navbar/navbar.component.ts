@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MytranslateService } from '../../core/services/mytranslate.service';
+import { SubCategryService } from '../../core/services/sub-categry.service';
 
 @Component({
   selector: 'app-navbar',
@@ -30,5 +31,17 @@ export class NavbarComponent {
   @HostListener('document:click')
   closeAll() {
     this.categoriesOpen.set(false);
+  }
+  private readonly subCategryService = inject(SubCategryService)
+  subCategry = signal<SubCategry[]>([]);
+  ngOnInit(): void {
+    this.getAllSubCategry()
+  }
+  getAllSubCategry():void{
+    this.subCategryService.GetAllSubCategories().subscribe({
+      next:(res)=>{
+        this.subCategry.set(res.data)
+      }
+    })
   }
 }

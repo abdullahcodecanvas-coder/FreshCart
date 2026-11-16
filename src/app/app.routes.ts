@@ -31,13 +31,11 @@ export const routes: Routes = [
     title: 'FreshCart | Categories',
   },
   {
-    path: 'catergories/:id',
-    loadComponent: () =>
-      import('./features/categories/pages/categoriesdetails/categoriesdetails.component').then(
-        (m) => m.CategoriesdetailsComponent,
-      ),
-    title: 'FreshCart | Category Details',
-  },
+  path: 'catergories/:id/:slug',
+  loadComponent: () =>
+    import('./features/categories/pages/categoriesdetails/categoriesdetails.component')
+      .then(m => m.CategoryDetailsComponent),
+},
 
   {
     path: 'brand',
@@ -46,7 +44,7 @@ export const routes: Routes = [
     title: 'FreshCart | Brands',
   },
   {
-    path: 'brand/:id',
+    path: 'brands/:id/:slug',
     loadComponent: () =>
       import('./features/brand/pages/detailsbrand/detailsbrand.component').then(
         (m) => m.DetailsbrandComponent,
@@ -81,6 +79,11 @@ export const routes: Routes = [
       import('./features/cart/pages/cart/cart.component').then((m) => m.CartComponent),
     title: 'FreshCart | Cart',
   },
+{
+  path: 'CategrySub/:id/:slug',
+  loadComponent: () => import('./features/sub_categries/sub-categry/sub-categry.component')
+    .then(m => m.SubCategryComponent)
+},
   {
     path: 'wishlist',
     loadComponent: () =>
@@ -96,4 +99,5 @@ export const routes: Routes = [
       import('./layout/notfoundpage/notfoundpage.component').then((m) => m.NotfoundpageComponent),
     title: 'FreshCart | Page Not Found',
   },
+
 ];

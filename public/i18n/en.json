@@ -94,5 +94,52 @@
       "primaryBtn": "Shop Now",
       "secondaryBtn": "View Deals"
     }
+  },
+  "categoriesSection": {
+    "title": "Shop By",
+    "highlight": "Category",
+    "viewAll": "View All Categories",
+    "items": {
+      "music": "Music",
+      "mens": "Men's Fashion",
+      "womens": "Women's Fashion",
+      "supermarket": "SuperMarket",
+      "baby": "Baby & Toys",
+      "home": "Home",
+      "books": "Books",
+      "beauty": "Beauty & Health",
+      "mobiles": "Mobiles",
+      "electronics": "Electronics"
+    }
+  },"promoBanner": {
+    "leftCard": {
+      "tag": "🔥 Deal of the Day",
+      "title": "Fresh Organic Fruits",
+      "subtitle": "Get up to 40% off on selected organic fruits",
+      "discount": "40% OFF",
+      "codeText": "Use code: ",
+      "code": "ORGANIC40",
+      "button": "Shop Now"
+    },
+    "rightCard": {
+      "tag": "✨ New Arrivals",
+      "title": "Exotic Vegetables",
+      "subtitle": "Discover our latest collection of premium vegetables",
+      "discount": "25% OFF",
+      "codeText": "Use code: ",
+      "code": "FRESH25",
+      "button": "Explore Now"
+    }
+    
+  },"shop": {
+    "breadcrumb": {
+      "home": "Home"
+    },
+    "header": {
+      "title": "All Products",
+      "subtitle": "Explore our complete product collection"
+    }
   }
+ 
+
 }

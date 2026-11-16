@@ -1,1 +1,87 @@
-<p>shop works!</p>
+<!-- Header -->
+<section class="bg-gradient-to-br from-green-500 to-green-400 text-white">
+  <div class="container mx-auto px-6 py-8">
+
+    <nav class="flex items-center gap-2 text-sm text-white/90 mb-6">
+      <a routerLink="/home" class="hover:underline">Home</a>
+      <span>/</span>
+      <span class="font-semibold text-white">{{ headerTitle() }}</span>
+    </nav>
+
+    <div class="flex items-center gap-5 pb-4">
+      <div class="w-16 h-16 rounded-2xl bg-white/20 shadow-lg shrink-0 flex items-center justify-center backdrop-blur-sm">
+        <i class="fa-solid fa-box-open text-2xl text-white"></i>
+      </div>
+
+      <div>
+        <h1 class="text-4xl font-bold">{{ headerTitle() }}</h1>
+        <p class="text-white/90 mt-1">{{ headerSubtitle() }}</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Products -->
+<section class="container mx-auto px-6 py-10">
+  @if (subcategoryId()) {
+    <button
+      (click)="clearFilter()"
+      class="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm px-4 py-2 rounded-full mb-6"
+    >
+      {{ 'shop.filter.clear' | translate }}
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  }
+
+  @if (loading()) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      @for (i of [1, 2, 3, 4, 5, 6, 7, 8]; track i) {
+        <div class="h-80 rounded-2xl bg-slate-200 animate-pulse"></div>
+      }
+    </div>
+  } @else if (products().length === 0) {
+    <div class="text-center py-20">
+      <i class="fa-solid fa-box-open text-5xl text-slate-300 mb-4"></i>
+      <h3 class="text-xl font-bold text-slate-800">{{ 'shop.empty' | translate }}</h3>
+    </div>
+  } @else {
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      @for (item of products(); track item._id) {
+        <app-cart-style [item]="item" />
+      }
+    </div>
+
+    @if (numberOfPages() > 1) {
+      <div class="flex items-center justify-center gap-2 mt-10">
+        <button
+          (click)="goToPage(currentPage() - 1)"
+          [disabled]="currentPage() === 1"
+          class="px-3 py-2 rounded-lg border border-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        @for (page of pages(); track page) {
+          <button
+            (click)="goToPage(page)"
+            class="w-10 h-10 rounded-lg border text-sm font-medium transition-colors"
+            [class]="currentPage() === page
+              ? 'bg-green-600 text-white border-green-600'
+              : 'border-slate-200 text-slate-700 hover:bg-slate-50'"
+          >
+            {{ page }}
+          </button>
+        }
+
+        <button
+          (click)="goToPage(currentPage() + 1)"
+          [disabled]="currentPage() === numberOfPages()"
+          class="px-3 py-2 rounded-lg border border-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    }
+  }
+</section>
