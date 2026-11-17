@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { provideToastr } from 'ngx-toastr';
+import { provideToastr } from '@relynn/ngx-toastr';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from './core/interceptors/loading-interceptor';
 import { errorInterceptor } from './core/interceptors/error-interceptor';

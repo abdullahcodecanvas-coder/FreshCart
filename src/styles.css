@@ -2,7 +2,7 @@
 @source "../node_modules/flowbite";
 @plugin "flowbite/plugin";
 @import 'tailwindcss';
-@import 'ngx-toastr/toastr';
+@import "../node_modules/@relynn/ngx-toastr/toastr.css";
 @import './styles/font_style.css';
 body{
     font-family: 'exo';
