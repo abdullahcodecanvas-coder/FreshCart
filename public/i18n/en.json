@@ -139,7 +139,108 @@
       "title": "All Products",
       "subtitle": "Explore our complete product collection"
     }
+  },"login": {
+    "hero": {
+      "imageAlt": "FreshCart shopping cart full of fresh vegetables",
+      "title": "FreshCart - Your One-Stop Shop for Fresh Products",
+      "subtitle": "Join thousands of happy customers who trust FreshCart for their daily grocery needs",
+      "features": {
+        "freeDelivery": "Free Delivery",
+        "securePayment": "Secure Payment",
+        "support": "24/7 Support"
+      }
+    },
+    "brand": {
+      "fresh": "Fresh",
+      "cart": "Cart"
+    },
+    "welcomeTitle": "Welcome Back!",
+    "welcomeSubtitle": "Sign in to continue your fresh shopping experience",
+    "social": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook"
+    },
+    "divider": "or continue with email",
+    "form": {
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot Password?",
+      "togglePasswordAria": "Show or hide password",
+      "rememberMe": "Keep me signed in",
+      "submit": "Sign In"
+    },
+    "footer": {
+      "newCustomer": "New to FreshCart?",
+      "createAccount": "Create an account"
+    },
+    "trustBadges": {
+      "ssl": "SSL Secured",
+      "users": "50K+ Users",
+      "rating": "4.9 Rating"
+    }
+  },
+  "register": {
+    "hero": {
+      "welcomePrefix": "Welcome to ",
+      "brand": "FreshCart",
+      "subtitle": "Join thousands of happy customers who enjoy fresh groceries delivered right to their doorstep.",
+      "features": {
+        "quality": {
+          "title": "Premium Quality",
+          "description": "Fresh, carefully selected products every day"
+        },
+        "delivery": {
+          "title": "Fast Delivery",
+          "description": "Same-day delivery to your doorstep"
+        },
+        "security": {
+          "title": "Secure Shopping",
+          "description": "Your data and payments are always protected"
+        }
+      },
+      "testimonial": {
+        "author": "Sarah Johnson",
+        "quote": "FreshCart has completely changed how I shop for groceries. The quality is amazing and the delivery is always on time!"
+      }
+    },
+    "title": "Create Your Account",
+    "subtitle": "Start your fresh journey with us today",
+    "social": {
+      "google": "Google",
+      "facebook": "Facebook"
+    },
+    "divider": "or",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a strong password",
+      "passwordStrengthWeak": "Weak",
+      "passwordHint": "Must be at least 8 characters with a letter, a number and a symbol",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "termsPrefix": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "termsAnd": "and",
+      "privacyPolicy": "Privacy Policy",
+      "submit": "Create My Account"
+    },
+    "errors": {
+      "name": "Name must be between 3 and 20 characters",
+      "email": "Please enter a valid email",
+      "password": "Password must be at least 8 characters with a letter, a number and a symbol",
+      "mismatch": "Passwords do not match",
+      "phone": "Enter a valid Egyptian phone number",
+      "terms": "You must accept the terms to continue"
+    },
+    "hasAccount": "Already have an account?",
+    "login": "Login"
   }
- 
-
 }
+ 

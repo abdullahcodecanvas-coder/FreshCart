@@ -137,6 +137,108 @@
       "title": "كل المنتجات",
       "subtitle": "استكشف مجموعة منتجاتنا الكاملة"
     }
+  },"login": {
+    "hero": {
+      "imageAlt": "عربة تسوق فريش كارت مليئة بالخضروات الطازجة",
+      "title": "فريش كارت - وجهتك الشاملة للمنتجات الطازجة",
+      "subtitle": "انضم إلى آلاف العملاء السعداء الذين يثقون في فريش كارت لتلبية احتياجاتهم اليومية من البقالة",
+      "features": {
+        "freeDelivery": "توصيل مجاني",
+        "securePayment": "دفع آمن",
+        "support": "دعم على مدار الساعة"
+      }
+    },
+    "brand": {
+      "fresh": "فريش",
+      "cart": "كارت"
+    },
+    "welcomeTitle": "مرحباً بعودتك!",
+    "welcomeSubtitle": "سجّل الدخول لمتابعة تجربة التسوق الطازجة",
+    "social": {
+      "google": "المتابعة باستخدام جوجل",
+      "facebook": "المتابعة باستخدام فيسبوك"
+    },
+    "divider": "أو المتابعة باستخدام البريد الإلكتروني",
+    "form": {
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "togglePasswordAria": "إظهار أو إخفاء كلمة المرور",
+      "rememberMe": "تذكر تسجيل دخولي",
+      "submit": "تسجيل الدخول"
+    },
+    "footer": {
+      "newCustomer": "جديد في فريش كارت؟",
+      "createAccount": "إنشاء حساب"
+    },
+    "trustBadges": {
+      "ssl": "محمي بتقنية SSL",
+      "users": "+50 ألف مستخدم",
+      "rating": "تقييم 4.9"
+    }
+  },
+  "register": {
+    "hero": {
+      "welcomePrefix": "أهلاً بيك في ",
+      "brand": "فريش كارت",
+      "subtitle": "انضم لآلاف العملاء السعداء اللي بيستمتعوا بخضار وفاكهة وبقالة طازة لحد باب البيت.",
+      "features": {
+        "quality": {
+          "title": "جودة عالية",
+          "description": "منتجات طازة ومختارة بعناية كل يوم"
+        },
+        "delivery": {
+          "title": "توصيل سريع",
+          "description": "توصيل في نفس اليوم لحد باب بيتك"
+        },
+        "security": {
+          "title": "تسوّق آمن",
+          "description": "بياناتك ومدفوعاتك محمية دايمًا"
+        }
+      },
+      "testimonial": {
+        "author": "سارة جونسون",
+        "quote": "فريش كارت غيّر طريقة تسوقي للبقالة تمامًا. الجودة ممتازة والتوصيل دايمًا في ميعاده!"
+      }
+    },
+    "title": "إنشاء حساب جديد",
+    "subtitle": "ابدأ رحلتك معانا النهاردة",
+    "social": {
+      "google": "جوجل",
+      "facebook": "فيسبوك"
+    },
+    "divider": "أو",
+    "form": {
+      "nameLabel": "الاسم بالكامل",
+      "namePlaceholder": "اكتب اسمك بالكامل",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "اكتب بريدك الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "اكتب كلمة مرور قوية",
+      "passwordStrengthWeak": "ضعيفة",
+      "passwordHint": "لازم تكون 8 حروف على الأقل وفيها حرف ورقم ورمز",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "اكتب كلمة المرور تاني",
+      "phoneLabel": "رقم الموبايل",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "termsPrefix": "أنا موافق على",
+      "termsOfService": "شروط الخدمة",
+      "termsAnd": "و",
+      "privacyPolicy": "سياسة الخصوصية",
+      "submit": "إنشاء الحساب"
+    },
+    "errors": {
+      "name": "الاسم لازم يكون من 3 لـ 20 حرف",
+      "email": "اكتب إيميل صحيح",
+      "password": "الباسورد لازم يكون 8 حروف على الأقل وفيه حرف ورقم ورمز",
+      "mismatch": "كلمتين المرور مش متطابقين",
+      "phone": "اكتب رقم موبايل مصري صحيح",
+      "terms": "لازم توافق على الشروط عشان تكمّل"
+    },
+    "hasAccount": "عندك حساب بالفعل؟",
+    "login": "تسجيل الدخول"
   }
 }
   
