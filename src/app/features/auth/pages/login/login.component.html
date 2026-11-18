@@ -77,70 +77,110 @@
         <div class="flex-1 h-px bg-gray-200"></div>
       </div>
 
-      <!-- Form -->
-      <form class="space-y-5">
+<form class="space-y-5" [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
-        <!-- Email -->
-        <div>
-          <label for="email" class="block mb-2 text-sm font-semibold text-gray-800">
-            {{ 'login.form.emailLabel' | translate }}
-          </label>
-          <div class="relative">
-            <i class="fa-solid fa-envelope absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            <input
-              type="email"
-              id="email"
-              [placeholder]="'login.form.emailPlaceholder' | translate"
-              class="w-full bg-gray-50 border-2 border-gray-200 rounded-xl py-3 ps-11 pe-4 font-regular text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition"
-            />
-          </div>
-        </div>
+  <!-- Email -->
+  <div>
+    <label for="email" class="block mb-2 text-sm font-semibold text-gray-800">
+      {{ 'login.form.emailLabel' | translate }}
+    </label>
+    <div class="relative">
+      <i class="fa-solid fa-envelope absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        [placeholder]="'login.form.emailPlaceholder' | translate"
+        [class]="inputClass('email', 'pe-11')"
+      />
+      @if (isValid('email')) {
+        <i class="fa-solid fa-circle-check text-green-500 absolute end-4 top-1/2 -translate-y-1/2"></i>
+      }
+      @if (isInvalid('email')) {
+        <i class="fa-solid fa-circle-exclamation text-red-500 absolute end-4 top-1/2 -translate-y-1/2"></i>
+      }
+    </div>
+    @if (isInvalid('email')) {
+      <p class="mt-1 text-sm text-red-500">
+        @if (loginForm.controls.email.errors?.['required']) {
+          {{ 'login.errors.email.required' | translate }}
+        } @else {
+          {{ 'login.errors.email.invalid' | translate }}
+        }
+      </p>
+    }
+  </div>
 
-        <!-- Password -->
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <label for="password" class="text-sm font-semibold text-gray-800">
-              {{ 'login.form.passwordLabel' | translate }}
-            </label>
-            <a href="#" class="text-sm font-medium text-green-600 hover:underline">
-              {{ 'login.form.forgotPassword' | translate }}
-            </a>
-          </div>
-          <div class="relative">
-            <i class="fa-solid fa-lock absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            <input
-              type="password"
-              id="password"
-              [placeholder]="'login.form.passwordPlaceholder' | translate"
-              class="w-full bg-gray-50 border-2 border-gray-200 rounded-xl py-3 ps-11 pe-12 font-regular text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition"
-            />
-            <button
-              type="button"
-              [attr.aria-label]="'login.form.togglePasswordAria' | translate"
-              class="absolute end-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
-            >
-              <i class="fa-solid fa-eye"></i>
-            </button>
-          </div>
-        </div>
+  <!-- Password -->
+  <div>
+    <div class="flex items-center justify-between mb-2">
+      <label for="password" class="text-sm font-semibold text-gray-800">
+        {{ 'login.form.passwordLabel' | translate }}
+      </label>
+      <a href="#" class="text-sm font-medium text-green-600 hover:underline">
+        {{ 'login.form.forgotPassword' | translate }}
+      </a>
+    </div>
+    <div class="relative">
+      <i class="fa-solid fa-lock absolute start-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <input
+        formControlName="password"
+        [type]="showPassword() ? 'text' : 'password'"
+        id="password"
+        [placeholder]="'login.form.passwordPlaceholder' | translate"
+        [class]="inputClass('password', 'pe-20')"
+      />
+      @if (isValid('password')) {
+        <i class="fa-solid fa-circle-check text-green-500 absolute end-11 top-1/2 -translate-y-1/2"></i>
+      }
+      @if (isInvalid('password')) {
+        <i class="fa-solid fa-circle-exclamation text-red-500 absolute end-11 top-1/2 -translate-y-1/2"></i>
+      }
+      <button
+        type="button"
+        (click)="togglePassword()"
+        [attr.aria-label]="'login.form.togglePasswordAria' | translate"
+        class="absolute end-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+      >
+        <i class="fa-solid" [class.fa-eye]="!showPassword()" [class.fa-eye-slash]="showPassword()"></i>
+      </button>
+    </div>
+    @if (isInvalid('password')) {
+      <p class="mt-1 text-sm text-red-500">{{ 'login.errors.password.required' | translate }}</p>
+    }
+  </div>
 
-        <!-- Keep me signed in -->
-        <label class="flex items-center gap-2 text-sm font-regular text-gray-700 cursor-pointer w-fit">
-          <input
-            type="checkbox"
-            class="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
-          />
-          {{ 'login.form.rememberMe' | translate }}
-        </label>
+  <!-- Keep me signed in -->
+  <label class="flex items-center gap-2 text-sm font-regular text-gray-700 cursor-pointer w-fit">
+    <input
+      formControlName="rememberMe"
+      type="checkbox"
+      class="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+    />
+    {{ 'login.form.rememberMe' | translate }}
+  </label>
 
-        <!-- Submit -->
-        <button
-          type="submit"
-          class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-md transition cursor-pointer"
-        >
-          {{ 'login.form.submit' | translate }}
-        </button>
-      </form>
+  <!-- Server error -->
+  @if (errorMsg()) {
+    <div class="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{ errorMsg() | translate }}
+    </div>
+  }
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    [disabled]="isLoading()"
+    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-md transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+  >
+    @if (isLoading()) {
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    } @else {
+      {{ 'login.form.submit' | translate }}
+    }
+  </button>
+</form>
 
       <!-- Create account -->
       <div class="mt-6 pt-6 border-t border-gray-100 text-center font-regular text-gray-600">

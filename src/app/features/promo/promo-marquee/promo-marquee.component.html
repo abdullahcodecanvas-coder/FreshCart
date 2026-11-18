@@ -1,13 +1,12 @@
-
 <section class="marquee py-6 bg-white" dir="ltr">
   <div class="marquee-track">
     @for (p of loopItems; track $index) {
       <div class="promo-card-wrapper">
         <div
-          dir="rtl"
+          [attr.dir]="'common.dir' | translate"
           class="relative overflow-hidden flex items-center gap-3 rounded-2xl p-4 text-white shadow-lg {{ p.bg }}"
         >
-          <span class="absolute -top-6 -left-6 w-20 h-20 rounded-full bg-white/10"></span>
+          <span class="absolute -top-6 -start-6 w-20 h-20 rounded-full bg-white/10"></span>
 
           <span class="relative w-12 h-12 shrink-0 rounded-xl bg-white/20 flex items-center justify-center text-xl">
             <i class="{{ p.icon }}"></i>
@@ -15,10 +14,10 @@
 
           <div class="relative min-w-0">
             <h3 class="font-bold text-base leading-tight truncate">
-              {{ p.title }}
+              {{ 'promos.' + p.key + '.title' | translate }}
             </h3>
             <p class="mt-1 text-xs opacity-90 truncate">
-              {{ p.desc }}
+              {{ 'promos.' + p.key + '.desc' | translate }}
             </p>
           </div>
         </div>

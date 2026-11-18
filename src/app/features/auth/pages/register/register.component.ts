@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   AbstractControl,
   FormBuilder,
@@ -8,6 +8,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   imports: [TranslatePipe, RouterLink, ReactiveFormsModule],
@@ -17,6 +18,8 @@ import {
 })
 export class RegisterComponent {
   private readonly FB = inject(FormBuilder);
+  private readonly registerService = inject(RegisterService);
+  private readonly router = inject(Router);
 registerForm = this.FB.group(
   {
     name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -60,7 +63,14 @@ inputClass(name: string): string {
 sumbitForm(): void {
   if (this.registerForm.valid) {
     const { terms, ...body } = this.registerForm.value;
-    console.log(body); // { name, email, password, rePassword, phone }
+    this.registerService.Signup(body).subscribe({
+      next:(res)=>{
+       if(res.message ==='success'){
+        console.log(res)
+         this.router.navigate(['/login'])
+       }
+      }
+    })
   } else {
     this.registerForm.markAllAsTouched();
   }

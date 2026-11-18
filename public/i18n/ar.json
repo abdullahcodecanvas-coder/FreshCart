@@ -239,6 +239,74 @@
     },
     "hasAccount": "عندك حساب بالفعل؟",
     "login": "تسجيل الدخول"
+  },"errors": {
+  "email": {
+    "required": "Email is required. Example: ahmed@gmail.com",
+    "invalid": "Invalid email format. Example: ahmed@gmail.com"
+  },
+  "password": {
+    "required": "Password is required. Example: Ahmed@123"
+  },
+  "failed": "Login failed, please try again"
+},"errors": {
+  "name": {
+    "required": "الاسم مطلوب. مثال: أحمد علي",
+    "minlength": "الاسم قصير، اكتب 3 حروف على الأقل. مثال: أحمد علي",
+    "maxlength": "الاسم طويل، الحد الأقصى 20 حرف"
+  },
+  "email": {
+    "required": "الإيميل مطلوب. مثال: ahmed@gmail.com",
+    "invalid": "شكل الإيميل غلط. مثال: ahmed@gmail.com"
+  },
+  "password": {
+    "required": "كلمة المرور مطلوبة. مثال: Ahmed@123",
+    "pattern": "8 حروف على الأقل وفيها حرف ورقم ورمز. مثال: Ahmed@123"
+  },
+  "rePassword": {
+    "required": "من فضلك أكّد كلمة المرور",
+    "mismatch": "كلمتين المرور مش متطابقين"
+  },
+  "phone": {
+    "required": "رقم الموبايل مطلوب. مثال: 01012345678",
+    "pattern": "اكتب رقم موبايل مصري صحيح. مثال: 01012345678"
+  },
+  "terms": "لازم توافق على الشروط عشان تكمّل"
+},"common": {
+  "dir": "rtl"
+},
+"promos": {
+  "bankInstallment": {
+    "title": "قسّط مع بنك مصر",
+    "desc": "تقسيط حتى 24 شهر بدون فوائد"
+  },
+  "buyNow": {
+    "title": "اشتري دلوقتي وقسّط",
+    "desc": "ابدأ بمقدم 0%"
+  },
+  "discount": {
+    "title": "خصم 20%",
+    "desc": "على أول طلب ليك"
+  },
+  "freeShipping": {
+    "title": "شحن مجاني",
+    "desc": "على الطلبات فوق 500 جنيه"
+  },
+  "freshProducts": {
+    "title": "طازة دايمًا",
+    "desc": "بنختار ونوصّل في نفس اليوم"
+  },
+  "support": {
+    "title": "دعم 24/7",
+    "desc": "إحنا معاك في أي وقت"
+  },
+  "easyReturn": {
+    "title": "استرجاع سهل",
+    "desc": "استرجاع مجاني خلال 14 يوم"
+  },
+  "securePayment": {
+    "title": "دفع آمن",
+    "desc": "مدفوعاتك محمية دايمًا"
   }
+}
 }
   

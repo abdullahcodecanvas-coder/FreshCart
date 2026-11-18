@@ -241,6 +241,74 @@
     },
     "hasAccount": "Already have an account?",
     "login": "Login"
+  },"errors": {
+  "email": {
+    "required": "Email is required. Example: ahmed@gmail.com",
+    "invalid": "Invalid email format. Example: ahmed@gmail.com"
+  },
+  "password": {
+    "required": "Password is required. Example: Ahmed@123"
+  },
+  "failed": "Login failed, please try again"
+},"errors": {
+  "name": {
+    "required": "Name is required. Example: Ahmed Ali",
+    "minlength": "Name is too short, use at least 3 characters. Example: Ahmed Ali",
+    "maxlength": "Name is too long, use at most 20 characters"
+  },
+  "email": {
+    "required": "Email is required. Example: ahmed@gmail.com",
+    "invalid": "Invalid email format. Example: ahmed@gmail.com"
+  },
+  "password": {
+    "required": "Password is required. Example: Ahmed@123",
+    "pattern": "At least 8 characters with a letter, a number and a symbol. Example: Ahmed@123"
+  },
+  "rePassword": {
+    "required": "Please confirm your password",
+    "mismatch": "Passwords do not match"
+  },
+  "phone": {
+    "required": "Phone number is required. Example: 01012345678",
+    "pattern": "Enter a valid Egyptian number. Example: 01012345678"
+  },
+  "terms": "You must accept the terms to continue"
+},"common": {
+  "dir": "ltr"
+},
+"promos": {
+  "bankInstallment": {
+    "title": "Installments with Banque Misr",
+    "desc": "Up to 24 months, 0% interest"
+  },
+  "buyNow": {
+    "title": "Buy now, pay later",
+    "desc": "Start with 0% down payment"
+  },
+  "discount": {
+    "title": "20% off",
+    "desc": "On your first order"
+  },
+  "freeShipping": {
+    "title": "Free shipping",
+    "desc": "On orders over 500 EGP"
+  },
+  "freshProducts": {
+    "title": "Always fresh",
+    "desc": "Picked and delivered the same day"
+  },
+  "support": {
+    "title": "24/7 support",
+    "desc": "We're here whenever you need us"
+  },
+  "easyReturn": {
+    "title": "Easy returns",
+    "desc": "Free returns within 14 days"
+  },
+  "securePayment": {
+    "title": "Secure payment",
+    "desc": "Your payments are always protected"
   }
+}
 }
  

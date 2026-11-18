@@ -53,3 +53,24 @@ body{
 .freshcart-toast .toast-close-button {
   color: #24313b;
 }
+
+#toast-container > .toast-success {
+  background-color: #16a34a;
+  background-image: none; /* بيشيل الأيقونة الافتراضية */
+  color: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
+  opacity: 1;
+}
+
+#toast-container > .toast-error {
+  background-color: #dc2626;
+  background-image: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+
+.toast-success .toast-progress {
+  background-color: #bbf7d0;
+}
