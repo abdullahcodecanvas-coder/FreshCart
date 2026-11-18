@@ -62,7 +62,8 @@ export class LoginComponent {
         if (res.message === 'success') {
           const storage = rememberMe ? localStorage : sessionStorage;
           storage.setItem('token', res.token);
-          this.router.navigate(['/home']);
+          storage.setItem('user' , JSON.stringify(res.user) )
+          this.router.navigate(['/']);
         }
       },
       error: (err) => {

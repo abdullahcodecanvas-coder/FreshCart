@@ -309,6 +309,44 @@
     "title": "Secure payment",
     "desc": "Your payments are always protected"
   }
-}
+},"FORGOT_PASSWORD": {
+    "LEFT_TITLE": "Reset Your Password",
+    "LEFT_DESC": "Don't worry, it happens to the best of us. We'll help you get back into your account in no time.",
+    "FEATURE_EMAIL": "Email Verification",
+    "FEATURE_SECURE": "Secure Reset",
+    "FEATURE_ENCRYPTED": "Encrypted",
+    
+    "BRAND_FRESH": "Fresh",
+    "BRAND_CART": "Cart",
+
+    "STEP_1_TITLE": "Forgot Password?",
+    "STEP_1_SUBTITLE": "No worries, we'll send you a reset code",
+    
+    "STEP_2_TITLE": "Check Your Email",
+    "STEP_2_SUBTITLE": "Enter the 6-digit code sent to {{email}}",
+    
+    "STEP_3_TITLE": "Create New Password",
+    "STEP_3_SUBTITLE": "Your new password must be different from previous passwords",
+
+    "LABEL_EMAIL": "Email Address",
+    "PLACEHOLDER_EMAIL": "Enter your email address",
+    "BTN_SEND_CODE": "Send Reset Code",
+    "BACK_TO_SIGN_IN": "Back to Sign In",
+    "REMEMBER_PASSWORD": "Remember your password?",
+    "SIGN_IN": "Sign In",
+
+    "LABEL_CODE": "Verification Code",
+    "RESEND_PROMPT": "Didn't receive the code?",
+    "BTN_RESEND": "Resend Code",
+    "BTN_VERIFY": "Verify Code",
+    "CHANGE_EMAIL": "Change email address",
+
+    "LABEL_NEW_PASSWORD": "New Password",
+    "PLACEHOLDER_NEW_PASSWORD": "Enter new password",
+    "LABEL_CONFIRM_PASSWORD": "Confirm Password",
+    "PLACEHOLDER_CONFIRM_PASSWORD": "Confirm new password",
+    "ERROR_PASSWORDS_MATCH": "Passwords do not match",
+    "BTN_RESET_PASSWORD": "Reset Password"
+  }
 }
  

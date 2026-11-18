@@ -307,6 +307,44 @@
     "title": "دفع آمن",
     "desc": "مدفوعاتك محمية دايمًا"
   }
-}
+},"FORGOT_PASSWORD": {
+    "LEFT_TITLE": "إعادة تعيين كلمة المرور",
+    "LEFT_DESC": "لا تقلق، فهذا يحدث لأفضلنا. سنساعدك في استعادة حسابك في وقت قياسي.",
+    "FEATURE_EMAIL": "التحقق من البريد",
+    "FEATURE_SECURE": "إعادة تعيين آمنة",
+    "FEATURE_ENCRYPTED": "مشفر بالكامل",
+    
+    "BRAND_FRESH": "فريش",
+    "BRAND_CART": "كارت",
+
+    "STEP_1_TITLE": "هل نسيت كلمة المرور؟",
+    "STEP_1_SUBTITLE": "لا تقلق، سنرسل لك رمز إعادة التعيين",
+    
+    "STEP_2_TITLE": "تحقق من بريدك الإلكتروني",
+    "STEP_2_SUBTITLE": "أدخل الرمز المكون من 6 أرقام المرسل إلى {{email}}",
+    
+    "STEP_3_TITLE": "أنشئ كلمة مرور جديدة",
+    "STEP_3_SUBTITLE": "يجب أن تكون كلمة المرور الجديدة مختلفة عن الكلمات السابقة",
+
+    "LABEL_EMAIL": "البريد الإلكتروني",
+    "PLACEHOLDER_EMAIL": "أدخل عنوان بريدك الإلكتروني",
+    "BTN_SEND_CODE": "إرسال رمز التعيين",
+    "BACK_TO_SIGN_IN": "العودة لتسجيل الدخول",
+    "REMEMBER_PASSWORD": "هل تتذكر كلمة المرور؟",
+    "SIGN_IN": "تسجيل الدخول",
+
+    "LABEL_CODE": "رمز التحقق",
+    "RESEND_PROMPT": "لم تستلم الرمز؟",
+    "BTN_RESEND": "إعادة إرسال الرمز",
+    "BTN_VERIFY": "تحقق من الرمز",
+    "CHANGE_EMAIL": "تغيير عنوان البريد الإلكتروني",
+
+    "LABEL_NEW_PASSWORD": "كلمة المرور الجديدة",
+    "PLACEHOLDER_NEW_PASSWORD": "أدخل كلمة المرور الجديدة",
+    "LABEL_CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+    "PLACEHOLDER_CONFIRM_PASSWORD": "تأكيد كلمة المرور الجديدة",
+    "ERROR_PASSWORDS_MATCH": "كلمات المرور غير متطابقة",
+    "BTN_RESET_PASSWORD": "إعادة تعيين كلمة المرور"
+  }
 }
   

@@ -12,4 +12,14 @@ export class RegisterService {
     Signin(data:object):Observable<any>{
     return  this.httpClient.post(environment.baseUrl + `auth/signin` , data)
     }
+    forgotPasswords(data:object):Observable<any>{
+    return  this.httpClient.post(environment.baseUrl + `auth/forgotPasswords` , data)
+    }
+    verifyResetCode(data:object):Observable<any>{
+    return  this.httpClient.post(environment.baseUrl + `auth/verifyResetCode` , data)
+    }
+    resetPassword(data:object):Observable<any>{
+    return  this.httpClient.put(environment.baseUrl + `auth/resetPassword` , data)
+    }
+
 }
