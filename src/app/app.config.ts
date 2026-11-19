@@ -11,6 +11,7 @@ import { loadingInterceptor } from './core/interceptors/loading-interceptor';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { firstValueFrom } from 'rxjs';
+import { headersInterceptor } from './core/interceptors/headers-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,7 +33,7 @@ export const appConfig: ApplicationConfig = {
       preventDuplicates: true,
       toastClass: 'ngx-toastr freshcart-toast',
     }),
-    provideHttpClient(withFetch(), withInterceptors([loadingInterceptor, errorInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([loadingInterceptor, errorInterceptor,headersInterceptor])),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/i18n/',   // مسار مطلق بدل ./assets/i18n/

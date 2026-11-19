@@ -69,4 +69,13 @@ export class SubCategryComponent implements OnInit {
       },
     });
   }
+  getDiscount(product: any): number {
+  return Math.round((1 - product.priceAfterDiscount / product.price) * 100);
+}
+
+getStarType(rating: number, star: number): 'full' | 'half' | 'empty' {
+  if (rating >= star) return 'full';
+  if (rating >= star - 0.5) return 'half';
+  return 'empty';
+}
 }

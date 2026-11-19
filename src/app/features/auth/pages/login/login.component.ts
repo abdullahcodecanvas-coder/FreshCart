@@ -3,6 +3,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
+import { register } from 'module';
 
 @Component({
   imports: [TranslatePipe, RouterLink, ReactiveFormsModule],
@@ -64,6 +65,7 @@ export class LoginComponent {
           storage.setItem('token', res.token);
           storage.setItem('user' , JSON.stringify(res.user) )
           this.router.navigate(['/']);
+          this.registerService.isLogged.set(true)
         }
       },
       error: (err) => {

@@ -1,9 +1,13 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, HostListener, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MytranslateService } from '../../core/services/mytranslate.service';
 import { SubCategryService } from '../../core/services/sub-categry.service';
+import { RegisterService } from '../../features/auth/services/register.service';
+import { Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-navbar',
@@ -13,8 +17,12 @@ import { SubCategryService } from '../../core/services/sub-categry.service';
 })
 export class NavbarComponent {
   private readonly myTranslate = inject(MytranslateService);
+  private readonly registerService = inject(RegisterService);
 
-  categoriesOpen = signal(false);
+
+  isloged = computed( ()=> this.registerService.isLogged() )
+
+   categoriesOpen = signal(false);
   mobileOpen = signal(false);
 
   lang = this.myTranslate.lang;
@@ -22,6 +30,21 @@ export class NavbarComponent {
   toggleLang(): void {
     this.myTranslate.toggle();
   }
+  wishlistCount = computed(() => 0);
+cartCount = computed(() => 0);
+userName = computed(() => 'Usama');
+  constructor() {
+ 
+  this.router.events
+    .pipe(filter(e => e instanceof NavigationEnd), takeUntilDestroyed())
+    .subscribe(() => this.mobileOpen.set(false));
+}
+
+closeMobile() {
+    this.mobileOpen.set(false);
+  this.mobileCategoriesOpen.set(false);
+}
+
 
   toggleCategories(e: Event) {
     e.stopPropagation();
@@ -44,4 +67,20 @@ export class NavbarComponent {
       }
     })
   }
+private router = inject(Router);
+
+  logout() {
+  localStorage.removeItem('token');   
+  this.registerService.isLogged.set(false);
+  this.mobileOpen.set(false);
+  this.router.navigate(['/login']);
+}
+
+
+mobileCategoriesOpen = signal(false);
+
+toggleMobileCategories() {
+  this.mobileCategoriesOpen.set(!this.mobileCategoriesOpen());
+}
+
 }

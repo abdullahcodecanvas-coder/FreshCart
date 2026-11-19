@@ -1,34 +1,46 @@
 {
+
   "header": {
     "topBar": {
-      "freeShipping": "شحن مجاني للطلبات بقيمة 500 جنيه مصري",
-      "newArrivals": "وصول منتجات جديدة يومياً",
+      "freeShipping": "شحن مجاني للطلبات فوق 500 جنيه",
+      "newArrivals": "وصل حديثاً يومياً",
       "phone": "+1 (800) 123-4567",
       "email": "support@freshcart.com",
       "signIn": "تسجيل الدخول",
-      "signUp": "إنشاء حساب"
+      "signUp": "إنشاء حساب",
+      "logout": "تسجيل الخروج"
     },
     "brandName": "فريش كارت",
     "searchPlaceholder": "ابحث عن المنتجات",
     "nav": {
       "home": "الرئيسية",
       "shop": "المتجر",
-      "categories": "الفئات",
-      "brands": "العلامات التجارية"
+      "categories": "الأقسام",
+      "brands": "الماركات",
+      "wishlist": "المفضلة",
+      "cart": "السلة"
     },
     "categoriesMenu": {
-      "allCategories": "جميع الفئات",
-      "electronics": "الإلكترونيات",
+      "allCategories": "كل الأقسام",
+      "electronics": "إلكترونيات",
       "womensFashion": "أزياء نسائية",
       "mensFashion": "أزياء رجالية",
       "beautyAndHealth": "الجمال والصحة"
     },
     "support": {
-      "label": "الدعم الفني",
-      "value": "مساعدة على مدار الساعة 24/7"
+      "label": "الدعم",
+      "value": "مساعدة 24/7"
     },
-    "signIn": "تسجيل الدخول"
-  },
+    "help": {
+      "label": "تحتاج مساعدة؟",
+      "contact": "تواصل مع الدعم"
+    },
+    "signIn": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
+  }
+
+  
+  ,
   "footer": {
     "features": {
       "freeShipping": "شحن مجاني",
@@ -346,5 +358,6 @@
     "ERROR_PASSWORDS_MATCH": "كلمات المرور غير متطابقة",
     "BTN_RESET_PASSWORD": "إعادة تعيين كلمة المرور"
   }
+
 }
   

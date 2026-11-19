@@ -1,4 +1,5 @@
 {
+ 
   "header": {
     "topBar": {
       "freeShipping": "Free Shipping on Orders 500 EGP",
@@ -6,7 +7,8 @@
       "phone": "+1 (800) 123-4567",
       "email": "support@freshcart.com",
       "signIn": "Sign In",
-      "signUp": "Sign Up"
+      "signUp": "Sign Up",
+      "logout": "Logout"
     },
     "brandName": "FreshCart",
     "searchPlaceholder": "Search for products",
@@ -14,7 +16,9 @@
       "home": "Home",
       "shop": "Shop",
       "categories": "Categories",
-      "brands": "Brands"
+      "brands": "Brands",
+      "wishlist": "Wishlist",
+      "cart": "Cart"
     },
     "categoriesMenu": {
       "allCategories": "All Categories",
@@ -27,8 +31,18 @@
       "label": "Support",
       "value": "24/7 Help"
     },
-    "signIn": "Sign In"
-  },"footer": {
+    "help": {
+      "label": "Need Help?",
+      "contact": "Contact Support"
+    },
+    "signIn": "Sign In",
+    "logout": "Logout"
+  }
+
+  
+  
+  
+  ,"footer": {
     "features": {
       "freeShipping": "Free Shipping",
       "freeShippingDesc": "On orders over 500 EGP",
@@ -348,5 +362,6 @@
     "ERROR_PASSWORDS_MATCH": "Passwords do not match",
     "BTN_RESET_PASSWORD": "Reset Password"
   }
+
 }
  
