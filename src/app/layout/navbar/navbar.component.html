@@ -60,7 +60,7 @@
       <!-- Links (desktop) -->
       <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-800">
         <li>
-          <a routerLink="/" routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.home' | translate }}</a>
+          <a routerLink="/"  [routerLinkActiveOptions]="{ exact: true }"  routerLinkActive="text-green-600" class="hover:text-green-600 transition">{{ 'header.nav.home' | translate }}</a>
         </li>
 
         <li>
@@ -180,7 +180,7 @@
 
     <!-- Main links -->
     <nav class="px-5 py-3 border-t border-gray-100 space-y-1 text-gray-700">
-      <a routerLink="/" routerLinkActive="text-green-600" (click)="closeMobile()" class="block py-2.5 hover:text-green-600">{{ 'header.nav.home' | translate }}</a>
+      <a routerLink="/"   [routerLinkActiveOptions]="{ exact: true }"   routerLinkActive="text-green-600" (click)="closeMobile()" class="block py-2.5 hover:text-green-600">{{ 'header.nav.home' | translate }}</a>
       <a routerLink="/shop" routerLinkActive="text-green-600" (click)="closeMobile()" class="block py-2.5 hover:text-green-600">{{ 'header.nav.shop' | translate }}</a>
 <!-- Categories (accordion) -->
 <div>

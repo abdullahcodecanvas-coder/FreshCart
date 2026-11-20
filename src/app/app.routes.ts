@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { logedGuard } from './core/guard/loged-guard';
 
 export const routes: Routes = [
   {
@@ -75,6 +76,7 @@ export const routes: Routes = [
 
   {
     path: 'cart',
+    canActivate:[logedGuard] ,
     loadComponent: () =>
       import('./features/cart/pages/cart/cart.component').then((m) => m.CartComponent),
     title: 'FreshCart | Cart',
@@ -86,6 +88,7 @@ export const routes: Routes = [
 },
   {
     path: 'wishlist',
+    canActivate:[logedGuard],
     loadComponent: () =>
       import('./features/wishlist/pages/wishlist/wishlist.component').then(
         (m) => m.WishlistComponent,
