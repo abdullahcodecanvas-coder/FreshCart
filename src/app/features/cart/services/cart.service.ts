@@ -22,7 +22,7 @@ export class CartService {
     RemovespecificcartItem(id:string):Observable<any>{
     return this.httpClient.delete(environment.baseUrl+`cart/${id}`)
     }
-    Clearusercart():Observable<any>{
-    return this.httpClient.get(environment.baseUrl+`cart`)
-    }
+    Clearusercart(): Observable<any> {
+  return this.httpClient.delete(environment.baseUrl + `cart`);
+}
 }

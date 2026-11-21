@@ -1,217 +1,190 @@
-<!-- ===================== Cart with items ===================== -->
-<section class="min-h-screen bg-gray-50 py-8">
-  <div class="mx-auto max-w-7xl px-4">
+@if (cart(); as c) {
 
-    <nav class="mb-4 text-sm text-gray-500 font-regular">
-      <a href="#" class="hover:text-green-600">Home</a>
-      <span class="mx-2">/</span>
-      <span class="font-medium text-gray-900">Shopping Cart</span>
-    </nav>
+  @if (c.products?.length) {
+  <!-- ===================== Cart with items ===================== -->
+  <section class="min-h-screen bg-gray-50 py-8">
+    <div class="mx-auto max-w-7xl px-4">
 
-    <div class="mb-8 flex items-center gap-4">
-      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-600 text-white shadow-md">
-        <i class="fa-solid fa-cart-shopping text-xl"></i>
+      <nav class="mb-4 text-sm text-gray-500 font-regular">
+        <a routerLink="/home" class="hover:text-green-600">Home</a>
+        <span class="mx-2">/</span>
+        <span class="font-medium text-gray-900">Shopping Cart</span>
+      </nav>
+
+      <div class="mb-8 flex items-center gap-4">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-600 text-white shadow-md">
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Shopping Cart</h1>
+          <p class="text-gray-500 font-regular">
+            You have <span class="font-semibold text-green-600">{{ c.products.length }} items</span> in your cart
+          </p>
+        </div>
       </div>
-      <div>
-        <h1 class="text-3xl font-bold text-gray-900">Shopping Cart</h1>
-        <p class="text-gray-500 font-regular">
-          You have <span class="font-semibold text-green-600">4 items</span> in your cart
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+        <!-- Items -->
+        <div class="space-y-4 lg:col-span-2">
+
+          @for (item of c.products; track item._id) {
+          <div class="flex flex-col gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:flex-row">
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-28 w-28 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2">
+                <img [src]="item.product.imageCover" [alt]="item.product.title" class="h-full w-full object-contain" />
+              </div>
+              @if (item.product.quantity === undefined || item.product.quantity > 0) {
+<span class="inline-flex items-center gap-1 rounded-full bg-green-600 px-2.5 py-0.5 text-[10px] font-medium text-white">
+  <i class="fa-solid fa-check"></i> In Stock
+</span>
+} @else {
+<span class="inline-flex items-center gap-1 rounded-full bg-red-500 px-2.5 py-0.5 text-[10px] font-medium text-white">
+  <i class="fa-solid fa-xmark"></i> Out of Stock
+</span>
+}
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between">
+              <div>
+                <h3 class="line-clamp-1 text-lg font-semibold text-gray-900">{{ item.product.title }}</h3>
+                <div class="mt-2 flex items-center gap-2 text-xs">
+                  <span class="rounded-full bg-green-50 px-3 py-1 font-medium text-green-700">{{ item.product.category.name }}</span>
+                  <span class="text-gray-400">·</span>
+                  <span class="text-gray-500 font-regular">SKU: {{ item.product.id.slice(-6).toUpperCase() }}</span>
+                </div>
+                <p class="mt-3">
+                  <span class="text-lg font-bold text-green-600">{{ item.price }} EGP</span>
+                  <span class="ml-1 text-xs text-gray-400 font-regular">per unit</span>
+                </p>
+              </div>
+
+              <div class="mt-3 inline-flex w-fit items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 p-1">
+                <button type="button"
+                        (click)="updateQty(item.product._id, item.count - 1)"
+                        [disabled]="item.count <= 1"
+                        class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40">
+                  <i class="fa-solid fa-minus text-xs"></i>
+                </button>
+                <span class="w-8 text-center font-semibold text-gray-900">{{ item.count }}</span>
+                <button type="button"
+        (click)="updateQty(item.product._id, item.count + 1)"
+        [disabled]="item.product.quantity !== undefined && item.count >= item.product.quantity"
+        class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-green-600 text-white shadow-sm hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-40">
+  <i class="fa-solid fa-plus text-xs"></i>
+</button>
+              </div>
+            </div>
+
+            <div class="flex items-end justify-between gap-4 sm:justify-start">
+              <div class="text-right">
+                <p class="text-xs text-gray-400 font-regular">Total</p>
+                <p class="text-2xl font-bold text-gray-900">
+                  {{ item.count * item.price }}<span class="ml-0.5 text-xs font-regular text-gray-400">EGP</span>
+                </p>
+              </div>
+              <button type="button"
+                      (click)="removeItem(item.product._id)"
+                      class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-red-100 bg-red-50 text-red-500 hover:bg-red-100">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          }
+
+          <!-- Footer actions -->
+          <div class="flex items-center justify-between border-t border-gray-200 pt-4 text-sm">
+            <a routerLink="/shop" class="font-medium text-green-600 hover:text-green-700">
+              <i class="fa-solid fa-arrow-left mr-1"></i> Continue Shopping
+            </a>
+            <button type="button" (click)="clearCart()"
+                    class="cursor-pointer text-gray-500 font-regular hover:text-red-500">
+              <i class="fa-solid fa-trash mr-1"></i> Clear all items
+            </button>
+          </div>
+        </div>
+
+        <!-- Order summary -->
+        <aside class="h-fit overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+          <div class="bg-linear-to-r from-green-600 to-green-700 px-6 py-5 text-white">
+            <h2 class="flex items-center gap-2 text-lg font-bold">
+              <i class="fa-solid fa-bag-shopping"></i> Order Summary
+            </h2>
+            <p class="mt-1 text-sm font-regular text-green-100">{{ c.products.length }} items in your cart</p>
+          </div>
+
+          <div class="space-y-4 p-6">
+            <div class="flex items-center gap-3 rounded-xl bg-green-50 p-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
+                <i class="fa-solid fa-truck"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-green-700">Free Shipping!</p>
+                <p class="text-sm text-green-600 font-regular">You qualify for free delivery</p>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-gray-700 font-regular">
+              <span>Subtotal</span>
+              <span class="font-medium">{{ c.totalCartPrice }} EGP</span>
+            </div>
+            <div class="flex justify-between text-gray-700 font-regular">
+              <span>Shipping</span>
+              <span class="font-semibold text-green-600">FREE</span>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-dashed border-gray-200 pt-4">
+              <span class="font-semibold text-gray-900">Total</span>
+              <span class="text-2xl font-bold text-gray-900">
+                {{ c.totalCartPrice }}<span class="ml-1 text-xs font-regular text-gray-400">EGP</span>
+              </span>
+            </div>
+
+            <button type="button"
+                    class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-gray-300 py-3 text-sm font-medium text-gray-600 hover:border-green-500 hover:text-green-600">
+              <i class="fa-solid fa-tag"></i> Apply Promo Code
+            </button>
+
+            <a routerLink="/checkout"
+               class="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-green-600 to-green-700 py-3.5 font-semibold text-white shadow-lg shadow-green-600/30 hover:from-green-700 hover:to-green-800">
+              <i class="fa-solid fa-lock"></i> Secure Checkout
+            </a>
+
+            <div class="flex items-center justify-center gap-4 text-xs text-gray-500 font-regular">
+              <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-green-600"></i> Secure Payment</span>
+              <span class="h-3 w-px bg-gray-300"></span>
+              <span class="flex items-center gap-1"><i class="fa-solid fa-truck-fast text-blue-600"></i> Fast Delivery</span>
+            </div>
+
+            <a routerLink="/shop" class="block text-center text-sm font-medium text-green-600 hover:text-green-700">
+              <i class="fa-solid fa-arrow-left mr-1"></i> Continue Shopping
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  }@else {
+  <!-- ===================== Empty cart ===================== -->
+  <section class="min-h-screen bg-gray-50 py-8">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex min-h-[70vh] flex-col items-center justify-center text-center">
+        <div class="mb-6 flex h-28 w-28 items-center justify-center rounded-full bg-green-50 text-green-600">
+          <i class="fa-solid fa-cart-shopping text-5xl"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-900">Your cart is empty</h2>
+        <p class="mt-2 max-w-md text-gray-500 font-regular">
+          Looks like you haven't added anything to your cart yet. Start shopping and find something you love.
         </p>
+        <a routerLink="/shop"
+           class="mt-8 inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-green-600 to-green-700 px-8 py-3.5 font-semibold text-white shadow-lg shadow-green-600/30 hover:from-green-700 hover:to-green-800">
+          <i class="fa-solid fa-bag-shopping"></i> Start Shopping
+        </a>
       </div>
     </div>
+  </section>
+  }
+}
 
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-
-      <!-- Items -->
-      <div class="space-y-4 lg:col-span-2">
-
-        <!-- Item card (كرر الكارت ده لكل منتج) -->
-        <div class="flex gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-          <div class="flex flex-col items-center gap-2">
-            <div class="h-28 w-28 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2">
-              <img src="" alt="Woman Shawl" class="h-full w-full object-contain" />
-            </div>
-            <span class="inline-flex items-center gap-1 rounded-full bg-green-600 px-2.5 py-0.5 text-[10px] font-medium text-white">
-              <i class="fa-solid fa-check"></i> In Stock
-            </span>
-          </div>
-
-          <div class="flex flex-1 flex-col justify-between">
-            <div>
-              <h3 class="line-clamp-1 text-lg font-semibold text-gray-900">Woman Shawl</h3>
-              <div class="mt-2 flex items-center gap-2 text-xs">
-                <span class="rounded-full bg-green-50 px-3 py-1 font-medium text-green-700">Women's Fashion</span>
-                <span class="text-gray-400">·</span>
-                <span class="text-gray-500 font-regular">SKU: 5CA0AD</span>
-              </div>
-              <p class="mt-3">
-                <span class="text-lg font-bold text-green-600">149 EGP</span>
-                <span class="ml-1 text-xs text-gray-400 font-regular">per unit</span>
-              </p>
-            </div>
-
-            <div class="mt-3 inline-flex w-fit items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 p-1">
-              <button type="button"
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40">
-                <i class="fa-solid fa-minus text-xs"></i>
-              </button>
-              <span class="w-8 text-center font-semibold text-gray-900">2</span>
-              <button type="button"
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-green-600 text-white shadow-sm hover:bg-green-700">
-                <i class="fa-solid fa-plus text-xs"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="flex items-end gap-4">
-            <div class="text-right">
-              <p class="text-xs text-gray-400 font-regular">Total</p>
-              <p class="text-2xl font-bold text-gray-900">298<span class="ml-0.5 text-xs font-regular text-gray-400">EGP</span></p>
-            </div>
-            <button type="button"
-                    class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-red-100 bg-red-50 text-red-500 hover:bg-red-100">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Item card 2 -->
-        <div class="flex gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-          <div class="flex flex-col items-center gap-2">
-            <div class="h-28 w-28 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2">
-              <img src="" alt="Knitted Cardigan" class="h-full w-full object-contain" />
-            </div>
-            <span class="inline-flex items-center gap-1 rounded-full bg-green-600 px-2.5 py-0.5 text-[10px] font-medium text-white">
-              <i class="fa-solid fa-check"></i> In Stock
-            </span>
-          </div>
-
-          <div class="flex flex-1 flex-col justify-between">
-            <div>
-              <h3 class="line-clamp-1 text-lg font-semibold text-gray-900">Woman Standart Fit Knitted Cardigan</h3>
-              <div class="mt-2 flex items-center gap-2 text-xs">
-                <span class="rounded-full bg-green-50 px-3 py-1 font-medium text-green-700">Women's Fashion</span>
-                <span class="text-gray-400">·</span>
-                <span class="text-gray-500 font-regular">SKU: 5CA084</span>
-              </div>
-              <p class="mt-3">
-                <span class="text-lg font-bold text-green-600">499 EGP</span>
-                <span class="ml-1 text-xs text-gray-400 font-regular">per unit</span>
-              </p>
-            </div>
-
-            <div class="mt-3 inline-flex w-fit items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 p-1">
-              <button type="button" disabled
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40">
-                <i class="fa-solid fa-minus text-xs"></i>
-              </button>
-              <span class="w-8 text-center font-semibold text-gray-900">1</span>
-              <button type="button"
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-green-600 text-white shadow-sm hover:bg-green-700">
-                <i class="fa-solid fa-plus text-xs"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="flex items-end gap-4">
-            <div class="text-right">
-              <p class="text-xs text-gray-400 font-regular">Total</p>
-              <p class="text-2xl font-bold text-gray-900">499<span class="ml-0.5 text-xs font-regular text-gray-400">EGP</span></p>
-            </div>
-            <button type="button"
-                    class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-red-100 bg-red-50 text-red-500 hover:bg-red-100">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Footer actions -->
-        <div class="flex items-center justify-between border-t border-gray-200 pt-4 text-sm">
-          <a href="#" class="font-medium text-green-600 hover:text-green-700">
-            <i class="fa-solid fa-arrow-left mr-1"></i> Continue Shopping
-          </a>
-          <button type="button" class="cursor-pointer text-gray-500 font-regular hover:text-red-500">
-            <i class="fa-solid fa-trash mr-1"></i> Clear all items
-          </button>
-        </div>
-      </div>
-
-      <!-- Order summary -->
-      <aside class="h-fit overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-        <div class="bg-linear-to-r from-green-600 to-green-700 px-6 py-5 text-white">
-          <h2 class="flex items-center gap-2 text-lg font-bold">
-            <i class="fa-solid fa-bag-shopping"></i> Order Summary
-          </h2>
-          <p class="mt-1 text-sm font-regular text-green-100">4 items in your cart</p>
-        </div>
-
-        <div class="space-y-4 p-6">
-          <div class="flex items-center gap-3 rounded-xl bg-green-50 p-4">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
-              <i class="fa-solid fa-truck"></i>
-            </div>
-            <div>
-              <p class="font-semibold text-green-700">Free Shipping!</p>
-              <p class="text-sm text-green-600 font-regular">You qualify for free delivery</p>
-            </div>
-          </div>
-
-          <div class="flex justify-between text-gray-700 font-regular">
-            <span>Subtotal</span>
-            <span class="font-medium">1,994 EGP</span>
-          </div>
-          <div class="flex justify-between text-gray-700 font-regular">
-            <span>Shipping</span>
-            <span class="font-semibold text-green-600">FREE</span>
-          </div>
-
-          <div class="flex items-center justify-between border-t border-dashed border-gray-200 pt-4">
-            <span class="font-semibold text-gray-900">Total</span>
-            <span class="text-2xl font-bold text-gray-900">1,994<span class="ml-1 text-xs font-regular text-gray-400">EGP</span></span>
-          </div>
-
-          <button type="button"
-                  class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-gray-300 py-3 text-sm font-medium text-gray-600 hover:border-green-500 hover:text-green-600">
-            <i class="fa-solid fa-tag"></i> Apply Promo Code
-          </button>
-
-          <a href="#"
-             class="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-green-600 to-green-700 py-3.5 font-semibold text-white shadow-lg shadow-green-600/30 hover:from-green-700 hover:to-green-800">
-            <i class="fa-solid fa-lock"></i> Secure Checkout
-          </a>
-
-          <div class="flex items-center justify-center gap-4 text-xs text-gray-500 font-regular">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-green-600"></i> Secure Payment</span>
-            <span class="h-3 w-px bg-gray-300"></span>
-            <span class="flex items-center gap-1"><i class="fa-solid fa-truck-fast text-blue-600"></i> Fast Delivery</span>
-          </div>
-
-          <a href="#" class="block text-center text-sm font-medium text-green-600 hover:text-green-700">
-            <i class="fa-solid fa-arrow-left mr-1"></i> Continue Shopping
-          </a>
-        </div>
-      </aside>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ===================== Empty cart ===================== -->
-<section class="min-h-screen bg-gray-50 py-8">
-  <div class="mx-auto max-w-7xl px-4">
-    <div class="flex min-h-[70vh] flex-col items-center justify-center text-center">
-      <div class="mb-6 flex h-28 w-28 items-center justify-center rounded-full bg-green-50 text-green-600">
-        <i class="fa-solid fa-cart-shopping text-5xl"></i>
-      </div>
-      <h2 class="text-3xl font-bold text-gray-900">Your cart is empty</h2>
-      <p class="mt-2 max-w-md text-gray-500 font-regular">
-        Looks like you haven't added anything to your cart yet. Start shopping and find something you love.
-      </p>
-      <a routerLink="/shop"
-         class="mt-8 inline-flex items-center gap-2 rounded-xl bg-linear-to-r from-green-600 to-green-700 px-8 py-3.5 font-semibold text-white shadow-lg shadow-green-600/30 hover:from-green-700 hover:to-green-800">
-        <i class="fa-solid fa-bag-shopping"></i> Start Shopping
-      </a>
-    </div>
-  </div>
-</section>

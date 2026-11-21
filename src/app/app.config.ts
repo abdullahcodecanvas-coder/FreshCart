@@ -23,16 +23,14 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(),
     importProvidersFrom(NgxSpinnerModule),
-    provideToastr({
-      timeOut: 4000,
-      progressBar: true,
-      progressAnimation: 'decreasing',
-      closeButton: true,
-      newestOnTop: true,
-      positionClass: 'toast-top-right',
-      preventDuplicates: true,
-      toastClass: 'ngx-toastr freshcart-toast',
-    }),
+   provideToastr({
+  timeOut: 4000,
+  progressBar: true,
+  closeButton: true,
+  newestOnTop: true,
+  positionClass: 'toast-top-right',
+  preventDuplicates: true,
+}),
     provideHttpClient(withFetch(), withInterceptors([loadingInterceptor, errorInterceptor,headersInterceptor])),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
