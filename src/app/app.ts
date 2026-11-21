@@ -17,14 +17,13 @@ export class App implements OnInit {
   protected readonly title = signal('freshcart');
   private readonly registerService = inject(RegisterService)
   private readonly PLATFORM_ID = inject(PLATFORM_ID)
-  ngOnInit():void{
-    register();
-    if(isPlatformBrowser(this.PLATFORM_ID)){
-   if(localStorage.getItem('token')){
-    this.registerService.isLogged.set(true);
+ ngOnInit(): void {
+  register();
+  if (isPlatformBrowser(this.PLATFORM_ID)) {
+    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
+      this.registerService.isLogged.set(true);
     }
-    }
-    
   }
+}
   
 }

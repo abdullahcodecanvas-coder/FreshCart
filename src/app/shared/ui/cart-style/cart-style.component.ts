@@ -1,14 +1,19 @@
-import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, input, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { CartService } from '../../../features/cart/services/cart.service';
+import { ToastrService } from '@relynn/ngx-toastr';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink ],
   selector: 'app-cart-style',
   styleUrl: './cart-style.component.css',
   templateUrl: './cart-style.component.html',
 })
 export class CartStyleComponent {
   item  = input.required<ProductShop>();
+  private readonly cartService= inject(CartService)
+  private toastr = inject(ToastrService);
+private router = inject(Router);
   getDiscount(): number {
     const p = this.item();
     if (!p.priceAfterDiscount) return 0;
@@ -20,4 +25,34 @@ export class CartStyleComponent {
   if (rating >= star - 0.5) return 'half';
   return 'empty';
 }
+
+
+addedIds = signal<Set<string>>(new Set());
+
+callApiToAdd(id: string) {
+if(localStorage.getItem('token')){
+    this.cartService.AddProductToCart(id).subscribe({
+    next: (res) => {
+      if (res.status === 'success') {
+        this.addedIds.update(set => new Set(set).add(id));
+
+        setTimeout(() => {
+          this.addedIds.update(set => {
+            const next = new Set(set);
+            next.delete(id);
+            return next;
+          });
+        }, 2000);
+      }
+    },
+    error: (err) => console.error(err),
+  });
+}else{
+ this.toastr.warning('لازم تسجل دخول الأول عشان تضيف منتجات للسلة');
+    this.router.navigate(['/login']);
+    return;
 }
+}
+
+}
+

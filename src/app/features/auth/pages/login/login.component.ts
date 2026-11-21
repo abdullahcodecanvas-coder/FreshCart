@@ -59,15 +59,16 @@ export class LoginComponent {
 
     this.registerService.Signin(body).subscribe({
       next: (res) => {
-        this.isLoading.set(false);
-        if (res.message === 'success') {
-          const storage = rememberMe ? localStorage : sessionStorage;
-          storage.setItem('token', res.token);
-          storage.setItem('user' , JSON.stringify(res.user) )
-          this.router.navigate(['/']);
-          this.registerService.isLogged.set(true)
-        }
-      },
+  this.isLoading.set(false);
+  if (res.message === 'success') {
+    const storage = rememberMe ? localStorage : sessionStorage;
+    storage.setItem('token', res.token);
+    storage.setItem('user', JSON.stringify(res.user));
+
+    this.registerService.isLogged.set(true);
+    this.router.navigate(['/']);
+  }
+},
       error: (err) => {
         this.isLoading.set(false);
         this.errorMsg.set(err.error?.message || 'login.errors.failed');

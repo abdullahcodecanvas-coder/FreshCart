@@ -1,17 +1,19 @@
-import { isPlatformBrowser } from '@angular/common';
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export const headersInterceptor: HttpInterceptorFn = (req, next) => {
-const pLATFORM_ID = inject(PLATFORM_ID)
-if(isPlatformBrowser( pLATFORM_ID)){
-if(localStorage.getItem('token')){
-   req.clone({
-  setHeaders: {
-    AUTHORIZATION: `Bearer Token ${localStorage.getItem('token')}`
+  const platformId = inject(PLATFORM_ID);
+
+  if (isPlatformBrowser(platformId)) {
+    const token = localStorage.getItem('token') ?? sessionStorage.getItem('token');
+
+    if (token) {
+      req = req.clone({
+        setHeaders: { token }
+      });
+    }
   }
- }) 
-}
-}
+
   return next(req);
 };

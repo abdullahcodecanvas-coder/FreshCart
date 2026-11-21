@@ -69,8 +69,12 @@ closeMobile() {
   }
 private router = inject(Router);
 
-  logout() {
-  localStorage.removeItem('token');   
+logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('user');
+
   this.registerService.isLogged.set(false);
   this.mobileOpen.set(false);
   this.router.navigate(['/login']);

@@ -55,7 +55,22 @@
           <span class="text-lg font-bold text-slate-800">{{ p.price }} EGP</span>
         }
       </div>
-      <button class="w-11 h-11 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center cursor-pointer transition-colors"><i class="fa-solid fa-plus"></i></button>
+
+     <button
+  (click)="callApiToAdd(p._id)"
+  class="relative w-11 h-11 rounded-full text-white flex items-center justify-center cursor-pointer transition-all duration-300 active:scale-90"
+  [class]="addedIds().has(p._id) ? 'bg-emerald-500 scale-110' : 'bg-green-600 hover:bg-green-700'"
+>
+  <i
+    class="fa-solid fa-plus absolute transition-all duration-300"
+    [class]="addedIds().has(p._id) ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'"
+  ></i>
+
+  <i
+    class="fa-solid fa-check absolute transition-all duration-300"
+    [class]="addedIds().has(p._id) ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'"
+  ></i>
+</button>
     </div>
   </div>
 </article>
