@@ -2,6 +2,7 @@ import { Component, inject, input, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../../features/cart/services/cart.service';
 import { ToastrService } from '@relynn/ngx-toastr';
+import { WishlistService } from '../../../features/wishlist/services/wishlist.service';
 
 @Component({
   imports: [RouterLink ],
@@ -53,6 +54,29 @@ if(localStorage.getItem('token')){
     return;
 }
 }
+private readonly wishlistService = inject(WishlistService)
+ addHeart(id:string):void{
+  if(localStorage.getItem('token')){
+    this.wishlistService.Addproducttowishlist(id).subscribe({
+    next: (res) => {
+      if (res.status === 'success') {
+        this.addedIds.update(set => new Set(set).add(id));
 
+        setTimeout(() => {
+          this.addedIds.update(set => {
+            const next = new Set(set);
+            next.delete(id);
+            return next;
+          });
+        }, 2000);
+      }
+    },
+    error: (err) => console.error(err),
+  });
+}else{
+ this.toastr.warning('لازم تسجل دخول الأول عشان تضيف منتجات للسلة');
+    this.router.navigate(['/login']);
+    return;
+}}
 }
 

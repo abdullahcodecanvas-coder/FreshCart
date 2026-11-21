@@ -9,7 +9,11 @@
   }
 
   <div class="absolute top-3 right-3 z-10 flex flex-col gap-2">
-    <button class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-green-600 cursor-pointer"><i class="fa-regular fa-heart"></i></button>
+    <button 
+    (click)="addHeart(p._id)"
+     class="w-9 h-9 rounded-full bg-white shadow flex items-center 
+    justify-center text-slate-700 hover:text-green-600 cursor-pointer">
+    <i class="fa-regular fa-heart"></i></button>
 
     <button class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-green-600 cursor-pointer"><i class="fa-solid fa-arrows-rotate"></i></button>
 

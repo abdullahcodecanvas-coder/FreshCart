@@ -1,1 +1,120 @@
-<p>wishlist works!</p>
+<div class="min-h-screen bg-slate-50 font-regular">
+
+  <!-- Header -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+        <a routerLink="/home" class="hover:text-green-600 transition-colors">Home</a>
+        <span>/</span>
+        <span class="font-medium text-gray-900">Wishlist</span>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center">
+          <i class="fa-solid fa-heart text-red-500 text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">My Wishlist</h1>
+          <p class="text-sm text-gray-500">{{ products().length }} items saved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Table Card (بيتخفي لما القائمة تفضى) -->
+    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden"
+         [class.hidden]="products().length === 0">
+
+      <!-- Table Head -->
+      <div class="hidden md:grid grid-cols-12 items-center px-6 py-4 bg-gray-50 border-b border-gray-100 text-sm font-medium text-gray-500">
+        <div class="col-span-6">Product</div>
+        <div class="col-span-2 text-center">Price</div>
+        <div class="col-span-2 text-center">Status</div>
+        <div class="col-span-2 text-center">Actions</div>
+      </div>
+
+      <!-- Rows -->
+      @for (item of products(); track item._id) {
+        <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-5 border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors">
+
+          <!-- Product -->
+          <div class="md:col-span-6 flex items-center gap-4">
+            <a [routerLink]="['/details', item._id]"
+               class="w-20 h-20 shrink-0 rounded-xl border border-gray-100 bg-white p-2 flex items-center justify-center">
+              <img [src]="item.imageCover" [alt]="item.title" class="w-full h-full object-contain" />
+            </a>
+            <div class="min-w-0">
+              <a [routerLink]="['/details', item._id]"
+                 class="font-medium text-gray-900 hover:text-green-600 transition-colors line-clamp-2">{{ item.title }}</a>
+              <p class="text-sm text-gray-400 mt-1">{{ item.category.name }}</p>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="md:col-span-2 flex md:flex-col items-center justify-between md:justify-center">
+            <span class="md:hidden text-sm text-gray-500">Price</span>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">{{ (item.priceAfterDiscount || item.price) | number }} EGP</p>
+              <p class="text-sm text-gray-400 line-through" [class.hidden]="!item.priceAfterDiscount">{{ item.price | number }} EGP</p>
+            </div>
+          </div>
+
+          <!-- Status -->
+          <div class="md:col-span-2 flex md:justify-center items-center justify-between">
+            <span class="md:hidden text-sm text-gray-500">Status</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>In Stock
+            </span>
+          </div>
+
+          <!-- Actions -->
+          <div class="md:col-span-2 flex items-center justify-start md:justify-center gap-2">
+          <button type="button"
+        (click)="addToCart(item._id)"
+        class="flex items-center  justify-between gap-0.5 px-3 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors cursor-pointer">
+  <i class="fa-solid fa-cart-shopping text-xs"></i>
+  <span>Add to Cart</span>
+</button>
+            <button type="button"
+                    (click)="delete(item._id)"
+                    aria-label="Remove from wishlist"
+                    class="w-10 h-10 flex items-center justify-center rounded-lg 
+                    border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200
+                     hover:bg-red-50 transition-colors cursor-pointer">
+              <i class="fa-solid fa-trash text-sm"></i>
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- Continue Shopping -->
+    <a routerLink="/shop" class="inline-flex items-center pointer-carosal gap-2 mt-6 text-sm text-gray-500 hover:text-green-600 transition-colors">
+      <i class="fa-solid fa-arrow-left text-xs"></i>
+      Continue Shopping
+    </a>
+
+    <!-- Empty State (مفيش Heart): بيظهر لما القائمة تفضى -->
+    <div [class.hidden]="products().length > 0">
+      <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-100 py-20 px-6">
+        <div class="w-24 h-24 rounded-full bg-red-50 flex items-center justify-center mb-6">
+          <i class="fa-regular fa-heart text-red-400 text-4xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Your wishlist is empty</h2>
+        <p class="text-gray-500 max-w-sm mb-8">
+          Tap the heart icon on any product to save it here and come back to it later.
+        </p>
+        <a routerLink="/brand" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors">
+          <i class="fa-solid fa-bag-shopping"></i>
+          Continue Brand
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
