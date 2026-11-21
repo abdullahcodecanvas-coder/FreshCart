@@ -96,7 +96,7 @@ export const routes: Routes = [
     title: 'FreshCart | Wishlist',
   },
   {
-  path: 'checkout',
+  path: 'checkout/:id',
   loadComponent: () =>
     import('./features/checkout/pages/check-out/check-out.component').then(
       (m) => m.CheckOutComponent
@@ -104,7 +104,7 @@ export const routes: Routes = [
      title: 'FreshCart | Check Out',
 },
 {
-  path: 'orders',
+  path: 'allorders',
   loadComponent: () =>
     import('./features/payment/pages/orders/orders.component').then(
       (m) => m.OrdersComponent

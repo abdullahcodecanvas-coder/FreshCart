@@ -1,6 +1,6 @@
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { ApplicationConfig, importProvidersFrom, inject, PLATFORM_ID, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
@@ -19,7 +19,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),
-      withViewTransitions()
+      withViewTransitions(),
+      withComponentInputBinding(),
     ),
     provideClientHydration(),
     importProvidersFrom(NgxSpinnerModule),
