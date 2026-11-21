@@ -95,12 +95,28 @@ export const routes: Routes = [
       ),
     title: 'FreshCart | Wishlist',
   },
-
+  {
+  path: 'checkout',
+  loadComponent: () =>
+    import('./features/checkout/pages/check-out/check-out.component').then(
+      (m) => m.CheckOutComponent
+    ),
+     title: 'FreshCart | Check Out',
+},
+{
+  path: 'orders',
+  loadComponent: () =>
+    import('./features/payment/pages/orders/orders.component').then(
+      (m) => m.OrdersComponent
+    ),
+     title: 'FreshCart | Orders',
+},
   {
     path: '**',
     loadComponent: () =>
       import('./layout/notfoundpage/notfoundpage.component').then((m) => m.NotfoundpageComponent),
     title: 'FreshCart | Page Not Found',
   },
-
+ 
+  
 ];
