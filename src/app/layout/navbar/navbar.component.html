@@ -121,13 +121,44 @@
           {{ lang() === 'en' ? 'العربية' : 'English' }}
         </button>
 
-        <a routerLink="/wishlist" class="text-gray-600 hover:text-green-600 text-xl"  routerLinkActive="text-green-600">
-          <i class="fa-regular fa-heart"></i>
-        </a>
 
-        <a routerLink="/cart" class="relative text-gray-600 hover:text-green-600 text-xl"  routerLinkActive="text-green-600">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a routerLink="/wishlist" routerLinkActive="text-green-600"
+   class="relative text-gray-600 hover:text-green-600 text-xl">
+  <i class="fa-regular fa-heart"></i>
+  @if (wishlistCount() > 0) {
+    <span class="absolute -top-2 -end-2 min-w-5 h-5 px-1 rounded-full bg-red-500 text-white text-[11px] font-semibold flex items-center justify-center leading-none">
+      {{ wishlistCount() }}
+    </span>
+  }
+</a>
+
+<a routerLink="/cart" routerLinkActive="text-green-600"
+   class="relative text-gray-600 hover:text-green-600 text-xl">
+  <i class="fa-solid fa-cart-shopping"></i>
+  @if (cartCount() > 0) {
+    <span class="absolute -top-2.5 -end-2.5 min-w-[18px] h-[18px] px-1 rounded-full bg-green-600 text-white text-[10px] font-bold flex items-center justify-center leading-none ring-2 ring-white">
+      {{ cartCount() }}
+    </span>
+  }
+</a>
 
         <!-- Orders (logged-in only) -->
         @if (isloged()) {
@@ -138,6 +169,23 @@
             <i class="fa-solid fa-bag-shopping"></i>
           </a>
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         @if (isloged()) {
           <button (click)="logout()" class="hidden sm:flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-full transition whitespace-nowrap">
@@ -231,12 +279,14 @@
 
         <!-- Wishlist, Cart & Orders -->
         <div class="px-5 py-3 border-t border-gray-100 space-y-1">
+
           <a routerLink="/wishlist" (click)="closeMobile()" class="flex items-center gap-3 py-2 text-gray-700 hover:text-green-600">
             <span class="size-9 rounded-full bg-red-50 text-red-500 flex items-center justify-center">
               <i class="fa-regular fa-heart"></i>
             </span>
             <span class="flex-1">{{ 'header.nav.wishlist' | translate }}</span>
-            <span class="min-w-6 h-6 px-1.5 rounded-full bg-red-500 text-white text-xs font-semibold flex items-center justify-center">{{ wishlistCount() }}</span>
+            <span class="min-w-6 h-6 px-1.5 rounded-full bg-red-500 text-white text-xs 
+            font-semibold flex items-center justify-center">{{ wishlistCount() }}</span>
           </a>
 
           <a routerLink="/cart" (click)="closeMobile()" class="flex items-center gap-3 py-2 text-gray-700 hover:text-green-600">
@@ -244,7 +294,8 @@
               <i class="fa-solid fa-cart-shopping"></i>
             </span>
             <span class="flex-1">{{ 'header.nav.cart' | translate }}</span>
-            <span class="min-w-6 h-6 px-1.5 rounded-full bg-green-600 text-white text-xs font-semibold flex items-center justify-center">{{ cartCount() }}</span>
+            <span class="min-w-6 h-6 px-1.5 rounded-full bg-green-600 text-white text-xs font-semibold 
+            flex items-center justify-center">{{ cartCount() }}</span>
           </a>
 
           @if (isloged()) {

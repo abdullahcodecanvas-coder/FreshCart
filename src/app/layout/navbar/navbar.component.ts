@@ -1,5 +1,5 @@
-import { Component, computed, HostListener, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, computed, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MytranslateService } from '../../core/services/mytranslate.service';
@@ -8,6 +8,7 @@ import { RegisterService } from '../../features/auth/services/register.service';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CartService } from '../../features/cart/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class NavbarComponent {
   private readonly myTranslate = inject(MytranslateService);
   private readonly registerService = inject(RegisterService);
+  private readonly cartservices = inject(CartService);
+  private readonly platformId = inject(PLATFORM_ID);
 
 
   isloged = computed( ()=> this.registerService.isLogged() )
@@ -30,9 +33,17 @@ export class NavbarComponent {
   toggleLang(): void {
     this.myTranslate.toggle();
   }
+
   wishlistCount = computed(() => 0);
-cartCount = computed(() => 0);
+cartCount = computed(() => this.cartservices.count());
 userName = computed(() => 'Usama');
+ 
+
+
+
+
+
+
   constructor() {
  
   this.router.events
@@ -66,6 +77,9 @@ closeMobile() {
         this.subCategry.set(res.data)
       }
     })
+    if (isPlatformBrowser(this.platformId) && localStorage.getItem('token')) {
+    this.cartservices.refreshCount();
+  }
   }
 private router = inject(Router);
 

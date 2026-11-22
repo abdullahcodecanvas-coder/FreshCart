@@ -18,6 +18,8 @@ export class CartComponent  implements OnInit{
   this.cartService.GetLoggedusercart().subscribe({
     next: (res) => {
       console.log(res.data);
+      console.log( res.data.products);
+      this.cartService.count.set(res.data.products.length);  
       this.cart.set(res.data)
     },
     error: (err) => {
