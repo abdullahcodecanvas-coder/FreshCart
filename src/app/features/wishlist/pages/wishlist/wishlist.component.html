@@ -5,9 +5,9 @@
     <div class="max-w-6xl mx-auto px-4 py-8">
 
       <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
-        <a routerLink="/home" class="hover:text-green-600 transition-colors">Home</a>
+        <a routerLink="/home" class="hover:text-green-600 transition-colors">{{ 'wishlist.breadcrumb.home' | translate }}</a>
         <span>/</span>
-        <span class="font-medium text-gray-900">Wishlist</span>
+        <span class="font-medium text-gray-900">{{ 'wishlist.breadcrumb.wishlist' | translate }}</span>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -15,8 +15,8 @@
           <i class="fa-solid fa-heart text-red-500 text-xl"></i>
         </div>
         <div>
-          <h1 class="text-2xl font-bold text-gray-900">My Wishlist</h1>
-          <p class="text-sm text-gray-500">{{ products().length }} items saved</p>
+          <h1 class="text-2xl font-bold text-gray-900">{{ 'wishlist.title' | translate }}</h1>
+          <p class="text-sm text-gray-500">{{ products().length }} {{ 'wishlist.itemsSaved' | translate }}</p>
         </div>
       </div>
     </div>
@@ -31,10 +31,10 @@
 
       <!-- Table Head -->
       <div class="hidden md:grid grid-cols-12 items-center px-6 py-4 bg-gray-50 border-b border-gray-100 text-sm font-medium text-gray-500">
-        <div class="col-span-6">Product</div>
-        <div class="col-span-2 text-center">Price</div>
-        <div class="col-span-2 text-center">Status</div>
-        <div class="col-span-2 text-center">Actions</div>
+        <div class="col-span-6">{{ 'wishlist.table.product' | translate }}</div>
+        <div class="col-span-2 text-center">{{ 'wishlist.table.price' | translate }}</div>
+        <div class="col-span-2 text-center">{{ 'wishlist.table.status' | translate }}</div>
+        <div class="col-span-2 text-center">{{ 'wishlist.table.actions' | translate }}</div>
       </div>
 
       <!-- Rows -->
@@ -56,33 +56,33 @@
 
           <!-- Price -->
           <div class="md:col-span-2 flex md:flex-col items-center justify-between md:justify-center">
-            <span class="md:hidden text-sm text-gray-500">Price</span>
+            <span class="md:hidden text-sm text-gray-500">{{ 'wishlist.table.price' | translate }}</span>
             <div class="text-center">
-              <p class="font-semibold text-gray-900">{{ (item.priceAfterDiscount || item.price) | number }} EGP</p>
-              <p class="text-sm text-gray-400 line-through" [class.hidden]="!item.priceAfterDiscount">{{ item.price | number }} EGP</p>
+              <p class="font-semibold text-gray-900">{{ (item.priceAfterDiscount || item.price) | number }} {{ 'wishlist.currency' | translate }}</p>
+              <p class="text-sm text-gray-400 line-through" [class.hidden]="!item.priceAfterDiscount">{{ item.price | number }} {{ 'wishlist.currency' | translate }}</p>
             </div>
           </div>
 
           <!-- Status -->
           <div class="md:col-span-2 flex md:justify-center items-center justify-between">
-            <span class="md:hidden text-sm text-gray-500">Status</span>
+            <span class="md:hidden text-sm text-gray-500">{{ 'wishlist.table.status' | translate }}</span>
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>In Stock
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>{{ 'wishlist.inStock' | translate }}
             </span>
           </div>
 
           <!-- Actions -->
           <div class="md:col-span-2 flex items-center justify-start md:justify-center gap-2">
-          <button type="button"
-        (click)="addToCart(item._id)"
-        class="flex items-center  justify-between gap-0.5 px-3 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors cursor-pointer">
-  <i class="fa-solid fa-cart-shopping text-xs"></i>
-  <span>Add to Cart</span>
-</button>
+            <button type="button"
+                    (click)="addToCart(item._id)"
+                    class="flex items-center justify-between gap-1.5 px-3 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors cursor-pointer">
+              <i class="fa-solid fa-cart-shopping text-xs"></i>
+              <span>{{ 'wishlist.addToCart' | translate }}</span>
+            </button>
             <button type="button"
                     (click)="delete(item._id)"
-                    aria-label="Remove from wishlist"
-                    class="w-10 h-10 flex items-center justify-center rounded-lg 
+                    [attr.aria-label]="'wishlist.removeAriaLabel' | translate"
+                    class="w-10 h-10 flex items-center justify-center rounded-lg
                     border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200
                      hover:bg-red-50 transition-colors cursor-pointer">
               <i class="fa-solid fa-trash text-sm"></i>
@@ -95,8 +95,8 @@
 
     <!-- Continue Shopping -->
     <a routerLink="/shop" class="inline-flex items-center pointer-carosal gap-2 mt-6 text-sm text-gray-500 hover:text-green-600 transition-colors">
-      <i class="fa-solid fa-arrow-left text-xs"></i>
-      Continue Shopping
+      <i class="fa-solid fa-arrow-left text-xs rtl:rotate-180"></i>
+      {{ 'wishlist.continueShopping' | translate }}
     </a>
 
     <!-- Empty State (مفيش Heart): بيظهر لما القائمة تفضى -->
@@ -105,13 +105,13 @@
         <div class="w-24 h-24 rounded-full bg-red-50 flex items-center justify-center mb-6">
           <i class="fa-regular fa-heart text-red-400 text-4xl"></i>
         </div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-2">Your wishlist is empty</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ 'wishlist.empty.title' | translate }}</h2>
         <p class="text-gray-500 max-w-sm mb-8">
-          Tap the heart icon on any product to save it here and come back to it later.
+          {{ 'wishlist.empty.description' | translate }}
         </p>
         <a routerLink="/brand" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors">
           <i class="fa-solid fa-bag-shopping"></i>
-          Continue Brand
+          {{ 'wishlist.empty.continueBrand' | translate }}
         </a>
       </div>
     </div>

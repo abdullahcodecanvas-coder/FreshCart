@@ -1,7 +1,7 @@
 <section class="max-w-5xl mx-auto px-4 py-10">
   <div class="flex items-center justify-between mb-8">
-    <h1 class="text-3xl font-bold text-gray-800">My Orders</h1>
-    <span class="text-sm text-gray-500">{{ orders().length }} orders</span>
+    <h1 class="text-3xl font-bold text-gray-800">{{ 'orders.title' | translate }}</h1>
+    <span class="text-sm text-gray-500">{{ orders().length }} {{ 'orders.countLabel' | translate }}</span>
   </div>
 
   <div class="space-y-6">
@@ -12,27 +12,27 @@
         <header class="flex flex-wrap items-center justify-between gap-4 bg-gray-50 px-6 py-4 border-b border-gray-200">
           <div class="flex flex-wrap gap-x-8 gap-y-2">
             <div>
-              <p class="text-xs text-gray-500">Order</p>
+              <p class="text-xs text-gray-500">{{ 'orders.orderLabel' | translate }}</p>
               <p class="font-semibold text-gray-800">#{{ order.id }}</p>
             </div>
             <div>
-              <p class="text-xs text-gray-500">Placed on</p>
+              <p class="text-xs text-gray-500">{{ 'orders.placedOn' | translate }}</p>
               <p class="font-semibold text-gray-800">{{ order.createdAt | date: 'mediumDate' }}</p>
             </div>
             <div>
-              <p class="text-xs text-gray-500">Total</p>
-              <p class="font-semibold text-green-600">{{ order.totalOrderPrice }} EGP</p>
+              <p class="text-xs text-gray-500">{{ 'orders.total' | translate }}</p>
+              <p class="font-semibold text-green-600">{{ order.totalOrderPrice }} {{ 'orders.currency' | translate }}</p>
             </div>
           </div>
 
           <div class="flex gap-2">
             <span class="px-3 py-1 rounded-full text-xs font-medium"
               [class]="order.isPaid ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'">
-              {{ order.isPaid ? 'Paid' : 'Unpaid' }}
+              {{ (order.isPaid ? 'orders.status.paid' : 'orders.status.unpaid') | translate }}
             </span>
             <span class="px-3 py-1 rounded-full text-xs font-medium"
               [class]="order.isDelivered ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'">
-              {{ order.isDelivered ? 'Delivered' : 'In progress' }}
+              {{ (order.isDelivered ? 'orders.status.delivered' : 'orders.status.inProgress') | translate }}
             </span>
           </div>
         </header>
@@ -47,10 +47,10 @@
               <div class="flex-1 min-w-0">
                 <h3 class="font-medium text-gray-800 line-clamp-1">{{ item.product.title }}</h3>
                 <p class="text-sm text-gray-500">{{ item.product.category?.name }}</p>
-                <p class="text-sm text-gray-500 mt-1">Qty: {{ item.count }}</p>
+                <p class="text-sm text-gray-500 mt-1">{{ 'orders.qty' | translate }}: {{ item.count }}</p>
               </div>
 
-              <p class="font-semibold text-gray-800 whitespace-nowrap">{{ item.price * item.count }} EGP</p>
+              <p class="font-semibold text-gray-800 whitespace-nowrap">{{ item.price * item.count }} {{ 'orders.currency' | translate }}</p>
             </div>
           }
         </div>
@@ -58,11 +58,11 @@
         <!-- Footer -->
         <footer class="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-gray-50 border-t border-gray-200 text-sm text-gray-600">
           <p>
-            <i class="fa-solid fa-location-dot text-green-600 mr-1"></i>
+            <i class="fa-solid fa-location-dot text-green-600 me-1"></i>
             {{ order.shippingAddress.city }} - {{ order.shippingAddress.details }}
           </p>
           <p>
-            <i class="fa-solid fa-phone text-green-600 mr-1"></i>
+            <i class="fa-solid fa-phone text-green-600 me-1"></i>
             {{ order.shippingAddress.phone }}
           </p>
           <p class="uppercase font-medium">{{ order.paymentMethodType }}</p>
@@ -71,7 +71,7 @@
     } @empty {
       <div class="text-center py-20 text-gray-500">
         <i class="fa-solid fa-box-open text-5xl mb-4"></i>
-        <p>No orders yet</p>
+        <p>{{ 'orders.empty' | translate }}</p>
       </div>
     }
   </div>

@@ -38,19 +38,21 @@ export class NavbarComponent {
 
   wishlistCount = computed(() => this.wishlistServices.count());
 cartCount = computed(() => this.cartservices.count());
-userName = computed(() => 'Usama');
- 
 
-
-
-
-
+userName = signal<string>('');
 
   constructor() {
  
   this.router.events
     .pipe(filter(e => e instanceof NavigationEnd), takeUntilDestroyed())
     .subscribe(() => this.mobileOpen.set(false));
+
+      if (isPlatformBrowser(this.platformId)) {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.userName.set(JSON.parse(user).name);
+    }
+  }
 }
 
 closeMobile() {

@@ -2,11 +2,18 @@ import { Routes } from '@angular/router';
 import { logedGuard } from './core/guard/loged-guard';
 
 export const routes: Routes = [
+
   {
     path: '',
     loadComponent: () =>
       import('./features/home/pages/home/home.component').then((m) => m.HomeComponent),
     title: 'FreshCart | Home',
+  },
+  {
+  path:'profile' ,
+  loadComponent: () =>
+      import('./features/profile/pages/profile/profile.component').then((m) => m.ProfileComponent),
+    title: 'FreshCart | Profile',
   },
   {
     path: 'shop',

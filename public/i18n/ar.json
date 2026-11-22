@@ -360,6 +360,84 @@
     "ERROR_PASSWORDS_MATCH": "كلمات المرور غير متطابقة",
     "BTN_RESET_PASSWORD": "إعادة تعيين كلمة المرور"
   }
+  ,
+  "orders": {
+    "title": "طلباتي",
+    "countLabel": "طلبات",
+    "orderLabel": "الطلب",
+    "placedOn": "تاريخ الطلب",
+    "total": "الإجمالي",
+    "currency": "ج.م",
+    "qty": "الكمية",
+    "empty": "لا توجد طلبات حتى الآن",
+    "status": {
+      "paid": "مدفوع",
+      "unpaid": "غير مدفوع",
+      "delivered": "تم التوصيل",
+      "inProgress": "قيد التنفيذ"
+    }
+},
+  "wishlist": {
+    "breadcrumb": {
+      "home": "الرئيسية",
+      "wishlist": "المفضلة"
+    },
+    "title": "قائمة المفضلة",
+    "itemsSaved": "منتجات محفوظة",
+    "table": {
+      "product": "المنتج",
+      "price": "السعر",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    },
+    "currency": "ج.م",
+    "inStock": "متوفر",
+    "addToCart": "أضف إلى السلة",
+    "removeAriaLabel": "إزالة من المفضلة",
+    "continueShopping": "متابعة التسوق",
+    "empty": {
+      "title": "قائمة المفضلة فارغة",
+      "description": "اضغط على أيقونة القلب في أي منتج لحفظه هنا والعودة إليه لاحقاً.",
+      "continueBrand": "تصفح العلامات التجارية"
+    }
+  },
+  "cart": {
+    "breadcrumb": {
+      "home": "الرئيسية",
+      "cart": "سلة التسوق"
+    },
+    "title": "سلة التسوق",
+    "headerCountPrefix": "لديك",
+    "itemsLabel": "منتجات",
+    "headerCountSuffix": "في سلتك",
+    "inStock": "متوفر",
+    "outOfStock": "غير متوفر",
+    "sku": "رمز المنتج",
+    "currency": "ج.م",
+    "perUnit": "للقطعة",
+    "total": "الإجمالي",
+    "continueShopping": "متابعة التسوق",
+    "clearAll": "إفراغ السلة",
+    "summary": {
+      "title": "ملخص الطلب",
+      "itemsInCart": "منتجات في سلتك",
+      "freeShippingTitle": "شحن مجاني!",
+      "freeShippingDesc": "أنت مؤهل للحصول على توصيل مجاني",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "free": "مجاني",
+      "applyPromo": "تطبيق كود خصم",
+      "checkout": "إتمام الطلب بأمان",
+      "securePayment": "دفع آمن",
+      "fastDelivery": "توصيل سريع"
+    },
+    "empty": {
+      "title": "سلة التسوق فارغة",
+      "description": "يبدو أنك لم تضف أي منتجات إلى سلتك بعد. ابدأ التسوق واختر ما يعجبك.",
+      "startShopping": "ابدأ التسوق"
+    }
+  }
+
 
 }
   

@@ -3,11 +3,12 @@ import {  Orders } from '../../interface/order.interface';
 import { OrderService } from './../../services/order.service';
 import { Component, inject, OnInit, PLATFORM_ID, signal} from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 
 @Component({
-  imports: [DatePipe],
+  imports: [DatePipe , TranslatePipe],
   selector: 'app-orders',
   styleUrl: './orders.component.css',
   templateUrl: './orders.component.html',

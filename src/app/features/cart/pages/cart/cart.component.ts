@@ -1,9 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe],
   selector: 'app-cart',
   styleUrl: './cart.component.css',
   templateUrl: './cart.component.html',

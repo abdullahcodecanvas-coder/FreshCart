@@ -3,9 +3,10 @@ import { DecimalPipe, isPlatformBrowser } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { WishlistService } from '../../services/wishlist.service';
 import { CartService } from '../../../cart/services/cart.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [RouterLink, DecimalPipe],
+  imports: [RouterLink, DecimalPipe , TranslatePipe],
   selector: 'app-wishlist',
   styleUrl: './wishlist.component.css',
   templateUrl: './wishlist.component.html',
