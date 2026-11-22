@@ -1,5 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
+import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { DecimalPipe, isPlatformBrowser } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { WishlistService } from '../../services/wishlist.service';
 import { CartService } from '../../../cart/services/cart.service';
@@ -12,11 +12,15 @@ import { CartService } from '../../../cart/services/cart.service';
 })
 export class WishlistComponent implements OnInit {
   private readonly wishlistService = inject(WishlistService);
+   private readonly platformId = inject(PLATFORM_ID);
 
   products = signal<Wishlist[]>([]);
 
   ngOnInit(): void {
-    this.showAllWishlist();
+    if (isPlatformBrowser(this.platformId)) {
+      this.showAllWishlist();
+    }
+    
   }
 
   showAllWishlist(): void {
@@ -24,6 +28,7 @@ export class WishlistComponent implements OnInit {
       this.wishlistService.Getloggeduserwishlist().subscribe({
         next: (res) => {
           this.products.set(res.data);
+         
         },
         error: (err) => {
           console.log(err);

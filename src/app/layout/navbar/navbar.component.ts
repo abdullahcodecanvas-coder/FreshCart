@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CartService } from '../../features/cart/services/cart.service';
+import { WishlistService } from '../../features/wishlist/services/wishlist.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,7 @@ export class NavbarComponent {
   private readonly myTranslate = inject(MytranslateService);
   private readonly registerService = inject(RegisterService);
   private readonly cartservices = inject(CartService);
+  private readonly wishlistServices = inject(WishlistService);
   private readonly platformId = inject(PLATFORM_ID);
 
 
@@ -34,7 +36,7 @@ export class NavbarComponent {
     this.myTranslate.toggle();
   }
 
-  wishlistCount = computed(() => 0);
+  wishlistCount = computed(() => this.wishlistServices.count());
 cartCount = computed(() => this.cartservices.count());
 userName = computed(() => 'Usama');
  
@@ -79,7 +81,9 @@ closeMobile() {
     })
     if (isPlatformBrowser(this.platformId) && localStorage.getItem('token')) {
     this.cartservices.refreshCount();
+    this.wishlistServices.refreshCount();
   }
+
   }
 private router = inject(Router);
 
