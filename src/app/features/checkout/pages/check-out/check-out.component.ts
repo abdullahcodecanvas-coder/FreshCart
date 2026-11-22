@@ -3,6 +3,7 @@ import { CheckService } from '../../services/check.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CartService } from '../../../cart/services/cart.service';
 import { DecimalPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [ReactiveFormsModule ,DecimalPipe ],
@@ -13,9 +14,11 @@ import { DecimalPipe } from '@angular/common';
 export class CheckOutComponent implements OnInit {
   private readonly checkService = inject(CheckService);
   private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
       private readonly cartService = inject(CartService)
     cart = signal<Cart | null>(null)
   id = input<string>();
+    
   flag = signal('cash')
 
   checkoutForm = this.fb.group({
@@ -52,8 +55,8 @@ export class CheckOutComponent implements OnInit {
       next: (res) => {
         console.log(res);
         if(res.status === "success" ){
-
-        }
+         this.router.navigate(['/allorders']);
+        }  
       },
       error: (err) => {
         console.log(err);
@@ -62,8 +65,11 @@ export class CheckOutComponent implements OnInit {
     } else{
      this.checkService.Checkoutsession(this.id()! , this.checkoutForm.value).subscribe({
        next: (res) => {
+         if(res.status === "success" ){
          console.log(res);
          window.open(res.session.url , '_self')
+        } 
+         
        },
        error: (err) => {
          console.log(err);

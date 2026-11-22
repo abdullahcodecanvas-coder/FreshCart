@@ -18,7 +18,8 @@
       "categories": "Categories",
       "brands": "Brands",
       "wishlist": "Wishlist",
-      "cart": "Cart"
+      "cart": "Cart" ,
+        "orders": "My Orders"
     },
     "categoriesMenu": {
       "allCategories": "All Categories",

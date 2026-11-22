@@ -57,22 +57,36 @@ export class LoginComponent {
     const { rememberMe, ...body } = this.loginForm.value;
     this.isLoading.set(true);
 
-    this.registerService.Signin(body).subscribe({
-      next: (res) => {
-  this.isLoading.set(false);
-  if (res.message === 'success') {
-    const storage = rememberMe ? localStorage : sessionStorage;
-    storage.setItem('token', res.token);
-    storage.setItem('user', JSON.stringify(res.user));
+   
+this.registerService.Signin(body).subscribe({
+  next: (res) => {
+    this.isLoading.set(false);
 
-    this.registerService.isLogged.set(true);
-    this.router.navigate(['/']);
-  }
-},
-      error: (err) => {
-        this.isLoading.set(false);
-        this.errorMsg.set(err.error?.message || 'login.errors.failed');
-      },
-    });
+    console.log('User Data:', res.user);
+  if (res.message === 'success') {
+  const storage = rememberMe ? localStorage : sessionStorage;
+
+  const payload = JSON.parse(
+    atob(
+      res.token.split('.')[1]
+        .replace(/-/g, '+')
+        .replace(/_/g, '/')
+    )
+  );
+
+  storage.setItem('token', res.token);
+  storage.setItem('user', JSON.stringify(res.user));
+  storage.setItem('userId', payload.id);
+
+  this.registerService.isLogged.set(true);
+  this.router.navigate(['/']);
+}
+  },
+  error: (err) => {
+    this.isLoading.set(false);
+    this.errorMsg.set(err.error?.message || 'login.errors.failed');
+  },
+});
+
   }
 }

@@ -1,6 +1,7 @@
 {
 
   "header": {
+
     "topBar": {
       "freeShipping": "شحن مجاني للطلبات فوق 500 جنيه",
       "newArrivals": "وصل حديثاً يومياً",
@@ -18,7 +19,8 @@
       "categories": "الأقسام",
       "brands": "الماركات",
       "wishlist": "المفضلة",
-      "cart": "السلة"
+      "cart": "السلة" ,
+    "orders": "طلباتي"
     },
     "categoriesMenu": {
       "allCategories": "كل الأقسام",

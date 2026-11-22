@@ -9,9 +9,6 @@ export class CheckService {
     CreateCashOrder(id:string , data:object):Observable<any>{
         return this.httpClient.post(environment.baseUrl+`orders/${id}` , data)
     }
-    getAllOrders(id:string):Observable<any>{
-        return this.httpClient.get(environment.baseUrl+`orders/user/${id}`)
-    }
  private readonly document = inject(DOCUMENT);
 
   Checkoutsession(id: string, data: object): Observable<any> {

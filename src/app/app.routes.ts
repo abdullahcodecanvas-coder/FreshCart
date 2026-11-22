@@ -105,11 +105,11 @@ export const routes: Routes = [
 },
 {
   path: 'allorders',
+  canActivate: [logedGuard],
   loadComponent: () =>
-    import('./features/payment/pages/orders/orders.component').then(
-      (m) => m.OrdersComponent
-    ),
-     title: 'FreshCart | Orders',
+    import('./features/orders/pages/orders/orders.component')
+      .then((m) => m.OrdersComponent),
+  title: 'FreshCart | Orders',
 },
   {
     path: '**',
