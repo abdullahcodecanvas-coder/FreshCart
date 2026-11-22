@@ -110,7 +110,9 @@ export class ShopdetailsComponent implements OnInit {
     this.isWishlisted.update((v) => !v);
   }
 
-  addToCart(): void {}
+  addToCart(): void {
+    
+  }
 
   buyNow(): void {}
 }

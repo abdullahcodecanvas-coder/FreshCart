@@ -2,9 +2,10 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { SubCategryService } from '../../../core/services/sub-categry.service';
+import { CartStyleComponent } from '../../../shared/ui/cart-style/cart-style.component';
 
 @Component({
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, CartStyleComponent],
   selector: 'app-sub-categry',
   styleUrl: './sub-categry.component.css',
   templateUrl: './sub-categry.component.html',

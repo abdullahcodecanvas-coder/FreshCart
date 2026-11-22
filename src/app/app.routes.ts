@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { logedGuard } from './core/guard/loged-guard';
 
 export const routes: Routes = [
-
   {
     path: '',
     loadComponent: () =>
@@ -10,11 +9,26 @@ export const routes: Routes = [
     title: 'FreshCart | Home',
   },
   {
-  path:'profile' ,
+  path: 'profile',
   loadComponent: () =>
-      import('./features/profile/pages/profile/profile.component').then((m) => m.ProfileComponent),
-    title: 'FreshCart | Profile',
-  },
+    import('./features/profile/pages/profile/profile.component').then((m) => m.ProfileComponent),
+  title: 'FreshCart | Profile',
+  children: [
+    { path: '', redirectTo: 'setting', pathMatch: 'full' },
+    {
+      path: 'setting',
+      loadComponent: () =>
+        import('./features/profile/component/setting/setting.component').then((m) => m.SettingComponent),
+      title: 'FreshCart | Settings',
+    },
+    {
+      path: 'address',
+      loadComponent: () =>
+        import('./features/profile/component/address/address.component').then((m) => m.AddressComponent),
+      title: 'FreshCart | Addresses',
+    },
+  ],
+},
   {
     path: 'shop',
     loadComponent: () =>

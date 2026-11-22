@@ -1,0 +1,38 @@
+<aside class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+
+  <div class="px-4 py-4 border-b border-gray-100">
+    <h2 class="font-semibold text-gray-900 text-sm">My Account</h2>
+  </div>
+
+  <nav class="p-2 space-y-1">
+
+    <!-- My Addresses -->
+    <a routerLink="/profile/address" routerLinkActive="active"
+       class="group flex items-center justify-between gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 transition
+              [&.active]:bg-green-50 [&.active]:text-green-700 [&.active]:font-medium">
+      <span class="flex items-center gap-3">
+        <span class="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 text-gray-500 text-sm transition
+                     group-[.active]:bg-green-500 group-[.active]:text-white">
+          <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <span class="text-sm">My Addresses</span>
+      </span>
+      <i class="fa-solid fa-chevron-right text-xs text-gray-400 group-[.active]:text-green-600"></i>
+    </a>
+
+    <!-- Settings -->
+    <a routerLink="/profile/setting" routerLinkActive="active"
+       class="group flex items-center justify-between gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 transition
+              [&.active]:bg-green-50 [&.active]:text-green-700 [&.active]:font-medium">
+      <span class="flex items-center gap-3">
+        <span class="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 text-gray-500 text-sm transition
+                     group-[.active]:bg-green-500 group-[.active]:text-white">
+          <i class="fa-solid fa-gear"></i>
+        </span>
+        <span class="text-sm">Settings</span>
+      </span>
+      <i class="fa-solid fa-chevron-right text-xs text-gray-400 group-[.active]:text-green-600"></i>
+    </a>
+
+  </nav>
+</aside>
