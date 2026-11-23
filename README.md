@@ -2,7 +2,7 @@
 
 FreshCart is a modern, responsive e-commerce web application built with **Angular** (standalone components) and **Tailwind CSS v4**. It lets users browse products, manage a cart and wishlist, place orders, and manage their profile.
 
-🔗 **Live Demo:** [your-live-demo-link-here](https://your-live-demo-link-here)
+🔗 **Live Demo:** [your-live-demo-link-here](https://fresh-cart-kappa-two.vercel.app/)
 
 ---
 
