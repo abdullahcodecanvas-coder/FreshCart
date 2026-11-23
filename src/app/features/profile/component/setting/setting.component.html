@@ -2,8 +2,8 @@
 
   <!-- Header -->
   <div class="mb-6">
-    <h2 class="text-lg font-semibold text-gray-900">Account Settings</h2>
-    <p class="text-sm text-gray-500">Update your profile information and change your password</p>
+    <h2 class="text-lg font-semibold text-gray-900">{{ 'SETTINGS.TITLE' | translate }}</h2>
+    <p class="text-sm text-gray-500">{{ 'SETTINGS.SUBTITLE' | translate }}</p>
   </div>
 
   <div class="space-y-6">
@@ -13,196 +13,255 @@
 
       <form class="p-6" [formGroup]="profileForm" (ngSubmit)="onSaveProfile()">
 
-  <!-- Card Title + Edit -->
-  <div class="flex items-center justify-between gap-4 mb-6">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 text-green-600">
-        <i class="fa-solid fa-user"></i>
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 text-sm">Profile Information</h3>
-        <p class="text-sm text-gray-500">Update your personal details</p>
-      </div>
-    </div>
+        <!-- Card Title + Edit -->
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 text-green-600">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm">{{ 'SETTINGS.PROFILE.TITLE' | translate }}</h3>
+              <p class="text-sm text-gray-500">{{ 'SETTINGS.PROFILE.SUBTITLE' | translate }}</p>
+            </div>
+          </div>
 
-    <button type="button" (click)="toggleEdit()"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-      <i class="fa-solid text-xs" [class.fa-pen]="!isEditing()" [class.fa-xmark]="isEditing()"></i>
-      <span>{{ isEditing() ? 'Cancel' : 'Edit' }}</span>
-    </button>
-  </div>
+          <button
+            type="button"
+            (click)="toggleEdit()"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+          >
+            <i class="fa-solid text-xs" [class.fa-pen]="!isEditing()" [class.fa-xmark]="isEditing()"></i>
+            <span>{{ (isEditing() ? 'SETTINGS.ACTIONS.CANCEL' : 'SETTINGS.ACTIONS.EDIT') | translate }}</span>
+          </button>
+        </div>
 
-  <div class="space-y-5">
+        <div class="space-y-5">
 
-    <!-- Full Name -->
-    <div>
-      <label for="fullName" class="block text-sm font-medium text-gray-800 mb-2">Full Name</label>
-      <input id="fullName" type="text" formControlName="name" placeholder="Enter your full name"
-             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed">
-      @if (profileForm.get('name')?.touched && profileForm.get('name')?.invalid) {
-        <p class="text-xs text-red-500 mt-1.5">Name must be at least 3 characters</p>
-      }
-    </div>
+          <!-- Full Name -->
+          <div>
+            <label for="fullName" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PROFILE.FORM.NAME.LABEL' | translate }}
+            </label>
+            <input
+              id="fullName"
+              type="text"
+              formControlName="name"
+              [placeholder]="'SETTINGS.PROFILE.FORM.NAME.PLACEHOLDER' | translate"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed"
+            >
+            @if (profileForm.get('name')?.touched && profileForm.get('name')?.invalid) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PROFILE.FORM.NAME.ERROR_MIN_LENGTH' | translate }}</p>
+            }
+          </div>
 
-    <!-- Email -->
-    <div>
-      <label for="email" class="block text-sm font-medium text-gray-800 mb-2">Email Address</label>
-      <input id="email" type="email" formControlName="email" placeholder="Enter your email"
-             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed">
-      @if (profileForm.get('email')?.touched && profileForm.get('email')?.invalid) {
-        <p class="text-xs text-red-500 mt-1.5">Enter a valid email</p>
-      }
-    </div>
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PROFILE.FORM.EMAIL.LABEL' | translate }}
+            </label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              [placeholder]="'SETTINGS.PROFILE.FORM.EMAIL.PLACEHOLDER' | translate"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed"
+            >
+            @if (profileForm.get('email')?.touched && profileForm.get('email')?.invalid) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PROFILE.FORM.EMAIL.ERROR_INVALID' | translate }}</p>
+            }
+          </div>
 
-    <!-- Phone -->
-    <div>
-      <label for="phone" class="block text-sm font-medium text-gray-800 mb-2">Phone Number</label>
-      <input id="phone" type="tel" formControlName="phone" placeholder="01xxxxxxxxx"
-             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed">
-      @if (profileForm.get('phone')?.touched && profileForm.get('phone')?.invalid) {
-        <p class="text-xs text-red-500 mt-1.5">Enter a valid Egyptian phone number</p>
-      }
-    </div>
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PROFILE.FORM.PHONE.LABEL' | translate }}
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              formControlName="phone"
+              [placeholder]="'SETTINGS.PROFILE.FORM.PHONE.PLACEHOLDER' | translate"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed"
+            >
+            @if (profileForm.get('phone')?.touched && profileForm.get('phone')?.invalid) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PROFILE.FORM.PHONE.ERROR_INVALID' | translate }}</p>
+            }
+          </div>
 
-  </div>
+        </div>
 
-  @if (profileError()) {
-    <p class="mt-4 text-sm text-red-600">{{ profileError() }}</p>
-  }
-  @if (profileMsg()) {
-    <p class="mt-4 text-sm text-green-600">{{ profileMsg() }}</p>
-  }
+        @if (profileError()) {
+          <p class="mt-4 text-sm text-red-600">{{ profileError() }}</p>
+        }
+        @if (profileMsg()) {
+          <p class="mt-4 text-sm text-green-600">{{ profileMsg() }}</p>
+        }
 
-  <!-- Save Button: باهت لحد ما تدوس Edit -->
-  <button type="submit" [disabled]="!isEditing() || isSaving()"
-          class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-medium shadow-md shadow-green-600/20 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-green-600">
-    @if (isSaving()) {
-      <i class="fa-solid fa-spinner fa-spin text-xs"></i>
-    } @else {
-      <i class="fa-solid fa-floppy-disk text-xs"></i>
-    }
-    <span>Save Changes</span>
-  </button>
+        <!-- Save Button -->
+        <button
+          type="submit"
+          [disabled]="!isEditing() || isSaving()"
+          class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-medium shadow-md shadow-green-600/20 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-green-600"
+        >
+          @if (isSaving()) {
+            <i class="fa-solid fa-spinner fa-spin text-xs"></i>
+          } @else {
+            <i class="fa-solid fa-floppy-disk text-xs"></i>
+          }
+          <span>{{ 'SETTINGS.ACTIONS.SAVE_CHANGES' | translate }}</span>
+        </button>
 
-</form>
+      </form>
 
       <!-- Account Information -->
       <div class="bg-gray-50 border-t border-gray-100 p-6">
-        <h4 class="font-semibold text-gray-900 text-sm mb-4">Account Information</h4>
+        <h4 class="font-semibold text-gray-900 text-sm mb-4">{{ 'SETTINGS.ACCOUNT_INFO.TITLE' | translate }}</h4>
 
         <div class="space-y-3">
           <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-500">User ID</span>
+            <span class="text-gray-500">{{ 'SETTINGS.ACCOUNT_INFO.USER_ID' | translate }}</span>
             <span class="text-gray-400">—</span>
           </div>
 
           <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-500">Role</span>
-            <span class="px-3 py-1 rounded-lg bg-green-100 text-green-700 text-xs font-medium">User</span>
+            <span class="text-gray-500">{{ 'SETTINGS.ACCOUNT_INFO.ROLE' | translate }}</span>
+            <span class="px-3 py-1 rounded-lg bg-green-100 text-green-700 text-xs font-medium">
+              {{ 'SETTINGS.ACCOUNT_INFO.ROLE_USER' | translate }}
+            </span>
           </div>
         </div>
       </div>
 
     </div>
 
-   <!-- ================= Change Password ================= -->
-<div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <!-- ================= Change Password ================= -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
 
-  <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+      <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
 
-    <!-- Card Title -->
-    <div class="flex items-center gap-4 mb-6">
-      <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-orange-100 text-orange-600">
-        <i class="fa-solid fa-lock"></i>
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 text-sm">Change Password</h3>
-        <p class="text-sm text-gray-500">Update your account password</p>
-      </div>
+        <!-- Card Title -->
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 text-sm">{{ 'SETTINGS.PASSWORD.TITLE' | translate }}</h3>
+            <p class="text-sm text-gray-500">{{ 'SETTINGS.PASSWORD.SUBTITLE' | translate }}</p>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+
+          <!-- Current Password -->
+          <div>
+            <label for="currentPassword" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PASSWORD.FORM.CURRENT.LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <input
+                id="currentPassword"
+                formControlName="currentPassword"
+                [type]="showCurrent() ? 'text' : 'password'"
+                [placeholder]="'SETTINGS.PASSWORD.FORM.CURRENT.PLACEHOLDER' | translate"
+                class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition"
+              >
+              <button
+                type="button"
+                (click)="showCurrent.set(!showCurrent())"
+                class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition"
+                [attr.aria-label]="'SETTINGS.ACTIONS.TOGGLE_PASSWORD' | translate"
+              >
+                <i class="fa-solid" [class.fa-eye]="!showCurrent()" [class.fa-eye-slash]="showCurrent()"></i>
+              </button>
+            </div>
+            @if (passwordForm.get('currentPassword')?.touched && passwordForm.get('currentPassword')?.errors?.['required']) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PASSWORD.FORM.CURRENT.ERROR_REQUIRED' | translate }}</p>
+            }
+          </div>
+
+          <!-- New Password -->
+          <div>
+            <label for="newPassword" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PASSWORD.FORM.NEW.LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <input
+                id="newPassword"
+                formControlName="password"
+                [type]="showNew() ? 'text' : 'password'"
+                [placeholder]="'SETTINGS.PASSWORD.FORM.NEW.PLACEHOLDER' | translate"
+                class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition"
+              >
+              <button
+                type="button"
+                (click)="showNew.set(!showNew())"
+                class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition"
+                [attr.aria-label]="'SETTINGS.ACTIONS.TOGGLE_PASSWORD' | translate"
+              >
+                <i class="fa-solid" [class.fa-eye]="!showNew()" [class.fa-eye-slash]="showNew()"></i>
+              </button>
+            </div>
+            @if (passwordForm.get('password')?.touched && passwordForm.get('password')?.invalid) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PASSWORD.FORM.NEW.ERROR_MIN_LENGTH' | translate }}</p>
+            } @else {
+              <p class="text-xs text-gray-500 mt-1.5">{{ 'SETTINGS.PASSWORD.FORM.NEW.HINT' | translate }}</p>
+            }
+          </div>
+
+          <!-- Confirm New Password -->
+          <div>
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-800 mb-2">
+              {{ 'SETTINGS.PASSWORD.FORM.CONFIRM.LABEL' | translate }}
+            </label>
+            <div class="relative">
+              <input
+                id="confirmPassword"
+                formControlName="rePassword"
+                [type]="showConfirm() ? 'text' : 'password'"
+                [placeholder]="'SETTINGS.PASSWORD.FORM.CONFIRM.PLACEHOLDER' | translate"
+                class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition"
+              >
+              <button
+                type="button"
+                (click)="showConfirm.set(!showConfirm())"
+                class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition"
+                [attr.aria-label]="'SETTINGS.ACTIONS.TOGGLE_PASSWORD' | translate"
+              >
+                <i class="fa-solid" [class.fa-eye]="!showConfirm()" [class.fa-eye-slash]="showConfirm()"></i>
+              </button>
+            </div>
+            @if (passwordForm.get('rePassword')?.touched && passwordForm.errors?.['mismatch']) {
+              <p class="text-xs text-red-500 mt-1.5">{{ 'SETTINGS.PASSWORD.FORM.CONFIRM.ERROR_MISMATCH' | translate }}</p>
+            }
+          </div>
+
+        </div>
+
+        <!-- Result Messages -->
+        @if (errorMsg()) {
+          <p class="mt-4 text-sm text-red-600">{{ errorMsg() }}</p>
+        }
+        @if (successMsg()) {
+          <p class="mt-4 text-sm text-green-600">{{ successMsg() }}</p>
+        }
+
+        <!-- Change Password Button -->
+        <button
+          type="submit"
+          [disabled]="isLoading()"
+          class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium shadow-md shadow-orange-500/20 transition disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          @if (isLoading()) {
+            <i class="fa-solid fa-spinner fa-spin text-xs"></i>
+          } @else {
+            <i class="fa-solid fa-lock text-xs"></i>
+          }
+          <span>{{ 'SETTINGS.ACTIONS.CHANGE_PASSWORD' | translate }}</span>
+        </button>
+
+      </form>
+
     </div>
-
-    <div class="space-y-5">
-
-      <!-- Current Password -->
-      <div>
-        <label for="currentPassword" class="block text-sm font-medium text-gray-800 mb-2">Current Password</label>
-        <div class="relative">
-          <input id="currentPassword" formControlName="currentPassword"
-                 [type]="showCurrent() ? 'text' : 'password'"
-                 placeholder="Enter your current password"
-                 class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition">
-          <button type="button" (click)="showCurrent.set(!showCurrent())"
-                  class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition" aria-label="Toggle password visibility">
-            <i class="fa-solid" [class.fa-eye]="!showCurrent()" [class.fa-eye-slash]="showCurrent()"></i>
-          </button>
-        </div>
-        @if (passwordForm.get('currentPassword')?.touched && passwordForm.get('currentPassword')?.errors?.['required']) {
-          <p class="text-xs text-red-500 mt-1.5">Current password is required</p>
-        }
-      </div>
-
-      <!-- New Password -->
-      <div>
-        <label for="newPassword" class="block text-sm font-medium text-gray-800 mb-2">New Password</label>
-        <div class="relative">
-          <input id="newPassword" formControlName="password"
-                 [type]="showNew() ? 'text' : 'password'"
-                 placeholder="Enter your new password"
-                 class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition">
-          <button type="button" (click)="showNew.set(!showNew())"
-                  class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition" aria-label="Toggle password visibility">
-            <i class="fa-solid" [class.fa-eye]="!showNew()" [class.fa-eye-slash]="showNew()"></i>
-          </button>
-        </div>
-        @if (passwordForm.get('password')?.touched && passwordForm.get('password')?.invalid) {
-          <p class="text-xs text-red-500 mt-1.5">Must be at least 6 characters</p>
-        } @else {
-          <p class="text-xs text-gray-500 mt-1.5">Must be at least 6 characters</p>
-        }
-      </div>
-
-      <!-- Confirm New Password -->
-      <div>
-        <label for="confirmPassword" class="block text-sm font-medium text-gray-800 mb-2">Confirm New Password</label>
-        <div class="relative">
-          <input id="confirmPassword" formControlName="rePassword"
-                 [type]="showConfirm() ? 'text' : 'password'"
-                 placeholder="Confirm your new password"
-                 class="w-full px-4 py-3 pe-12 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition">
-          <button type="button" (click)="showConfirm.set(!showConfirm())"
-                  class="absolute inset-y-0 end-0 px-4 text-gray-400 hover:text-gray-600 transition" aria-label="Toggle password visibility">
-            <i class="fa-solid" [class.fa-eye]="!showConfirm()" [class.fa-eye-slash]="showConfirm()"></i>
-          </button>
-        </div>
-        @if (passwordForm.get('rePassword')?.touched && passwordForm.errors?.['mismatch']) {
-          <p class="text-xs text-red-500 mt-1.5">Passwords do not match</p>
-        }
-      </div>
-
-    </div>
-
-    <!-- رسايل النتيجة -->
-    @if (errorMsg()) {
-      <p class="mt-4 text-sm text-red-600">{{ errorMsg() }}</p>
-    }
-    @if (successMsg()) {
-      <p class="mt-4 text-sm text-green-600">{{ successMsg() }}</p>
-    }
-
-    <!-- Change Password Button -->
-    <button type="submit" [disabled]="isLoading()"
-            class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium shadow-md shadow-orange-500/20 transition disabled:opacity-60 disabled:cursor-not-allowed">
-      @if (isLoading()) {
-        <i class="fa-solid fa-spinner fa-spin text-xs"></i>
-      } @else {
-        <i class="fa-solid fa-lock text-xs"></i>
-      }
-      <span>Change Password</span>
-    </button>
-
-  </form>
-
-</div>
 
   </div>
 </div>

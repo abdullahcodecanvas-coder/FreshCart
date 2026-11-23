@@ -2,9 +2,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProfileService } from '../../services/profile.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule ,TranslatePipe],
   selector: 'app-setting',
   styleUrl: './setting.component.css',
   templateUrl: './setting.component.html',

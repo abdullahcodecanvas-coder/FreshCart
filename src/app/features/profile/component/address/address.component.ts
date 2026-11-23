@@ -2,10 +2,11 @@ import { Component, computed, inject, OnInit, PLATFORM_ID, signal } from '@angul
 import { ProfileService } from '../../services/profile.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule , TranslatePipe],
   selector: 'app-address',
   styleUrl: './address.component.css',
   templateUrl: './address.component.html',

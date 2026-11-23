@@ -439,7 +439,107 @@
       "description": "Looks like you haven't added anything to your cart yet. Start shopping and find something you love.",
       "startShopping": "Start Shopping"
     }
+  },
+  "ADDRESSES": {
+    "TITLE": "My Addresses",
+    "SUBTITLE": "Manage your saved delivery addresses",
+    "ADD_BUTTON": "Add Address",
+    "EMPTY": "No saved addresses yet",
+    "MODAL": {
+      "TITLE": "Add New Address",
+      "SUBTITLE": "Enter your delivery details"
+    },
+    "FORM": {
+      "NAME": {
+        "LABEL": "Address Name",
+        "PLACEHOLDER": "Home"
+      },
+      "DETAILS": {
+        "LABEL": "Details",
+        "PLACEHOLDER": "Street, building, apartment"
+      },
+      "PHONE": {
+        "LABEL": "Phone",
+        "PLACEHOLDER": "01xxxxxxxxx"
+      },
+      "CITY": {
+        "LABEL": "City",
+        "PLACEHOLDER": "Cairo"
+      }
+    },
+    "ACTIONS": {
+      "EDIT": "Edit address",
+      "DELETE": "Delete address",
+      "CLOSE": "Close",
+      "CANCEL": "Cancel",
+      "SAVE": "Save Address"
+    }
+  },"ACCOUNT": {
+    "TITLE": "حسابي"
+  },
+  "SETTINGS": {
+    "TITLE": "الإعدادات"
+  },"SETTINGS": {
+    "TITLE": "Account Settings",
+    "SUBTITLE": "Update your profile information and change your password",
+    "PROFILE": {
+      "TITLE": "Profile Information",
+      "SUBTITLE": "Update your personal details",
+      "FORM": {
+        "NAME": {
+          "LABEL": "Full Name",
+          "PLACEHOLDER": "Enter your full name",
+          "ERROR_MIN_LENGTH": "Name must be at least 3 characters"
+        },
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Enter your email",
+          "ERROR_INVALID": "Enter a valid email"
+        },
+        "PHONE": {
+          "LABEL": "Phone Number",
+          "PLACEHOLDER": "01xxxxxxxxx",
+          "ERROR_INVALID": "Enter a valid Egyptian phone number"
+        }
+      }
+    },
+    "ACCOUNT_INFO": {
+      "TITLE": "Account Information",
+      "USER_ID": "User ID",
+      "ROLE": "Role",
+      "ROLE_USER": "User"
+    },
+    "PASSWORD": {
+      "TITLE": "Change Password",
+      "SUBTITLE": "Update your account password",
+      "FORM": {
+        "CURRENT": {
+          "LABEL": "Current Password",
+          "PLACEHOLDER": "Enter your current password",
+          "ERROR_REQUIRED": "Current password is required"
+        },
+        "NEW": {
+          "LABEL": "New Password",
+          "PLACEHOLDER": "Enter your new password",
+          "HINT": "Must be at least 6 characters",
+          "ERROR_MIN_LENGTH": "Must be at least 6 characters"
+        },
+        "CONFIRM": {
+          "LABEL": "Confirm New Password",
+          "PLACEHOLDER": "Confirm your new password",
+          "ERROR_MISMATCH": "Passwords do not match"
+        }
+      }
+    },
+    "ACTIONS": {
+      "EDIT": "Edit",
+      "CANCEL": "Cancel",
+      "SAVE_CHANGES": "Save Changes",
+      "CHANGE_PASSWORD": "Change Password",
+      "TOGGLE_PASSWORD": "Toggle password visibility"
+    }
   }
+
 
 
 }
