@@ -81,7 +81,8 @@
     "rights": "© {{ year }} فريش كارت. جميع الحقوق محفوظة."
   },"SECTIONS": {
     "FEATURED": "المنتجات",
-    "PRODUCTS": "المميزة"
+    "PRODUCTS": "المميزة" ,
+      "NO_RESULTS": "مفيش نتائج مطابقة للبحث"
   },"SECTIONS20": {
     "YOU_MAY_ALSO": "قد يعجبك",
     "LIKE": "أيضاً"
