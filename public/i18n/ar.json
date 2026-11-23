@@ -255,15 +255,6 @@
     "hasAccount": "عندك حساب بالفعل؟",
     "login": "تسجيل الدخول"
   },"errors": {
-  "email": {
-    "required": "Email is required. Example: ahmed@gmail.com",
-    "invalid": "Invalid email format. Example: ahmed@gmail.com"
-  },
-  "password": {
-    "required": "Password is required. Example: Ahmed@123"
-  },
-  "failed": "Login failed, please try again"
-},"errors": {
   "name": {
     "required": "الاسم مطلوب. مثال: أحمد علي",
     "minlength": "الاسم قصير، اكتب 3 حروف على الأقل. مثال: أحمد علي",
@@ -473,9 +464,6 @@
     }
   },"ACCOUNT": {
     "TITLE": "حسابي"
-  },
-  "SETTINGS": {
-    "TITLE": "إعدادات"
   },"SETTINGS": {
     "TITLE": "إعدادات الحساب",
     "SUBTITLE": "تحديث معلومات ملفك الشخصي وتغيير كلمة المرور",

@@ -257,15 +257,7 @@
     "hasAccount": "Already have an account?",
     "login": "Login"
   },"errors": {
-  "email": {
-    "required": "Email is required. Example: ahmed@gmail.com",
-    "invalid": "Invalid email format. Example: ahmed@gmail.com"
-  },
-  "password": {
-    "required": "Password is required. Example: Ahmed@123"
-  },
-  "failed": "Login failed, please try again"
-},"errors": {
+  "failed": "Login failed, please try again",
   "name": {
     "required": "Name is required. Example: Ahmed Ali",
     "minlength": "Name is too short, use at least 3 characters. Example: Ahmed Ali",
@@ -475,11 +467,9 @@
       "SAVE": "Save Address"
     }
   },"ACCOUNT": {
-    "TITLE": "حسابي"
-  },
-  "SETTINGS": {
-    "TITLE": "الإعدادات"
+    "TITLE": "Account"
   },"SETTINGS": {
+   
     "TITLE": "Account Settings",
     "SUBTITLE": "Update your profile information and change your password",
     "PROFILE": {
