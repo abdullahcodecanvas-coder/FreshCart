@@ -134,5 +134,5 @@ src/app
 ## 👨‍💻 Author
 
 **Abdullah Mahmoud**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/your-linkedin)
+- GitHub: [@your-username](https://github.com/abdullahcodecanvas-coder))
+- LinkedIn: [your-linkedin](https://www.linkedin.com/in/codecanvasabdullah-89a26140b/))
