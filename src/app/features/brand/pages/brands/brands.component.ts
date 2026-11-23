@@ -2,9 +2,12 @@ import { Component, inject, signal } from '@angular/core';
 import { BrandService } from '../../../../core/services/brand.service';
 import { RouterLink } from '@angular/router';
 import { Brand } from '../../../../core/models/brand.interface';
+import { SearchService } from '../../../../core/services/search.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { SearchPipe } from '../../../../shared/pipes/search-pipe';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe ,SearchPipe],
   selector: 'app-brands',
   styleUrl: './brands.component.css',
   templateUrl: './brands.component.html',
@@ -19,4 +22,5 @@ export class BrandsComponent {
       error: (err) => console.log(err),
     });
   }
+   private readonly searchService = inject(SearchService);
 }

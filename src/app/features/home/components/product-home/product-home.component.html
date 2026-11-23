@@ -4,8 +4,13 @@
   [highlight]="'SECTIONS.PRODUCTS' | translate">
 </app-section-title>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
- @for (item of product(); track item._id) {
+ @for (item of product() | search:searchService.serchItem() ; track item._id) {
  <app-cart-style [item]="item" ></app-cart-style>
-}
+}@empty {
+    <div class="col-span-full text-center py-10 text-gray-500">
+      <i class="fa-solid fa-magnifying-glass text-3xl mb-3"></i>
+      <p class="text-lg">{{ 'SECTIONS.NO_RESULTS' | translate }}</p>
+    </div>
+  }
 </div>
 </section>

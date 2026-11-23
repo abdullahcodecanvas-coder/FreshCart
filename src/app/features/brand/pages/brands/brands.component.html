@@ -23,7 +23,7 @@
 <section class="bg-slate-50 px-6 py-6">
   <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
 
-    @for (brand of brands(); track brand._id) {
+    @for (brand of brands() | search:searchService.serchItem() :'name'; track brand._id) {
       <a
         [routerLink]="['/brands', brand._id , brand.slug]"
         class="flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-5 pb-8 shadow-sm transition hover:shadow-md"
@@ -37,7 +37,12 @@
         </div>
         <h3 class="mt-4 text-sm font-semibold text-gray-900">{{ brand.name }}</h3>
       </a>
-    }
+    }@empty {
+    <div class="col-span-full text-center py-10 text-gray-500">
+      <i class="fa-solid fa-magnifying-glass text-3xl mb-3"></i>
+      <p class="text-lg">{{ 'SECTIONS.NO_RESULTS' | translate }}</p>
+    </div>
+  }
 
   </div>
 </section>

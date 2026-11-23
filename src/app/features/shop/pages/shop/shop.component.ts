@@ -4,9 +4,11 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ShopService } from '../../../../core/services/shop.service';
 import { CartStyleComponent } from '../../../../shared/ui/cart-style/cart-style.component';
+import { SearchService } from '../../../../core/services/search.service';
+import { SearchPipe } from '../../../../shared/pipes/search-pipe';
 
 @Component({
-  imports: [TranslatePipe, RouterLink, CartStyleComponent],
+  imports: [TranslatePipe, RouterLink, CartStyleComponent ,SearchPipe],
   selector: 'app-shop',
   styleUrl: './shop.component.css',
   templateUrl: './shop.component.html',
@@ -86,4 +88,5 @@ headerSubtitle = signal<string>('Explore our products');
     },
   });
 }
+ private readonly searchService = inject(SearchService);
 }

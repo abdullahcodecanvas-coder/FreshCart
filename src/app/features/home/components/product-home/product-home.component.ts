@@ -4,15 +4,18 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { SectionTitleComponent } from '../../../../shared/ui/section-title/section-title.component';
 import { ShopService } from '../../../../core/services/shop.service';
 import { CartStyleComponent } from '../../../../shared/ui/cart-style/cart-style.component';
+import { SearchPipe } from '../../../../shared/pipes/search-pipe';
+import { SearchService } from '../../../../core/services/search.service';
 
 @Component({
   selector: 'app-product-home',
-  imports: [SectionTitleComponent, CommonModule, TranslatePipe, CartStyleComponent],
+  imports: [SectionTitleComponent, CommonModule, TranslatePipe, CartStyleComponent, SearchPipe],
   styleUrl: './product-home.component.css',
   templateUrl: './product-home.component.html',
 })
 export class ProductHomeComponent implements OnInit {
  private readonly shopService = inject(ShopService);
+ private readonly searchService = inject(SearchService);
 
 product = signal<ProductShop[]>([]);
 currentPage = 1;

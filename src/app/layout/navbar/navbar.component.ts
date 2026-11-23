@@ -10,6 +10,7 @@ import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CartService } from '../../features/cart/services/cart.service';
 import { WishlistService } from '../../features/wishlist/services/wishlist.service';
+import { SearchService } from '../../core/services/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +24,13 @@ export class NavbarComponent {
   private readonly cartservices = inject(CartService);
   private readonly wishlistServices = inject(WishlistService);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly searchService = inject(SearchService)
+
+onSearch(Event:InputEvent){
+ const value = (Event.target as HTMLInputElement).value
+ this.searchService.setItem(value)
+}
+
 
 
   isloged = computed( ()=> this.registerService.isLogged() )
