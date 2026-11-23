@@ -194,7 +194,7 @@
       "ssl": "SSL Secured",
       "users": "50K+ Users",
       "rating": "4.9 Rating"
-    }
+    },"errors": { "rememberMe": { "required": "Please check Keep me signed in to continue" } }
   },
   "register": {
     "hero": {

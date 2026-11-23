@@ -20,11 +20,11 @@ export class LoginComponent {
   isLoading = signal(false);
   errorMsg = signal('');
 
-  loginForm = this.FB.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
-    rememberMe: [false],
-  });
+loginForm = this.FB.group({
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', [Validators.required]],
+  rememberMe: [false, [Validators.requiredTrue]],
+});
 
   isInvalid(name: string): boolean {
     const c = this.loginForm.get(name);
@@ -54,7 +54,7 @@ export class LoginComponent {
       return;
     }
 
-    const { rememberMe, ...body } = this.loginForm.value;
+   const { rememberMe, ...body } = this.loginForm.value;
     this.isLoading.set(true);
 
    
