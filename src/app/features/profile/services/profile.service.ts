@@ -22,6 +22,9 @@ export class ProfileService {
         return this.httpClient.put(environment.baseUrl + `addresses/${id}`, data)
     }
     changePassword(data: object): Observable<any> {
-  return this.httpClient.put(environment.baseUrl + `users/changeMyPassword`, data);
-}
+    return this.httpClient.put(environment.baseUrl + `users/changeMyPassword`, data);
+    }
+    UpdateMe(data: object): Observable<any> {
+     return this.httpClient.put(environment.baseUrl + `users/updateMe`, data);
+     }
 }

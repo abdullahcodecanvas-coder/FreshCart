@@ -55,4 +55,78 @@ export class SettingComponent {
       },
     });
   }
+
+
+   isEditing = signal(false);
+  isSaving = signal(false);
+  profileMsg = signal('');
+  profileError = signal('');
+
+  profileForm = this.FB.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.pattern(/^01[0125][0-9]{8}$/)]],
+  });
+
+  ngOnInit() {
+    this.loadUser();
+  }
+
+  private loadUser() {
+    try {
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+      this.profileForm.patchValue({
+        name: user.name ?? '',
+        email: user.email ?? '',
+        phone: user.phone ?? '',
+      });
+    } catch {}
+    this.profileForm.disable(); // الوضع الافتراضي: مقفول
+  }
+
+  toggleEdit() {
+    if (this.isEditing()) {
+      // Cancel: ارجع للداتا الأصلية
+      this.loadUser();
+      this.isEditing.set(false);
+    } else {
+      this.profileForm.enable();
+      this.isEditing.set(true);
+    }
+    this.profileMsg.set('');
+    this.profileError.set('');
+  }
+
+  onSaveProfile() {
+    if (this.profileForm.invalid) {
+      this.profileForm.markAllAsTouched();
+      return;
+    }
+
+    const { name, email, phone } = this.profileForm.value;
+    const body: any = { name, email };
+    if (phone) body.phone = phone; // ما تبعتش phone فاضي
+
+    this.isSaving.set(true);
+    this.profileMsg.set('');
+    this.profileError.set('');
+
+    this.profileService.UpdateMe(body).subscribe({
+      next: (res: any) => {
+        const old = JSON.parse(localStorage.getItem('user') || '{}');
+        const updated = { ...old, ...(res.user ?? body) };
+        localStorage.setItem('user', JSON.stringify(updated));
+
+        this.profileMsg.set('Profile updated successfully');
+        this.profileForm.disable();
+        this.isEditing.set(false);
+        this.isSaving.set(false);
+      },
+      error: (err) => {
+        this.profileError.set(err.error?.errors?.msg || err.error?.message || 'Something went wrong');
+        this.isSaving.set(false);
+      },
+    });
+  }
+
 }
