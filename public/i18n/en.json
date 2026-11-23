@@ -528,7 +528,60 @@
       "CHANGE_PASSWORD": "Change Password",
       "TOGGLE_PASSWORD": "Toggle password visibility"
     }
-  }
+  },"CHECKOUT": {
+  "BREADCRUMB_HOME": "Home",
+  "BREADCRUMB_CART": "Cart",
+  "BREADCRUMB_CHECKOUT": "Checkout",
+  "TITLE": "Complete Your Order",
+  "SUBTITLE": "Review your items and complete your purchase",
+  "BACK_TO_CART": "Back to Cart",
+
+  "SHIPPING_TITLE": "Shipping Address",
+  "SHIPPING_SUBTITLE": "Where should we deliver your order?",
+  "SAVED_ADDRESS": "Use a saved address",
+  "CLEAR": "Clear",
+  "OR_NEW": "Or fill in a new address below",
+
+  "CITY": "City",
+  "CITY_PLACEHOLDER": "e.g. Cairo, Alexandria, Giza",
+  "CITY_REQUIRED": "City is required",
+  "CITY_MIN": "City must be at least 3 characters",
+
+  "STREET": "Street Address",
+  "STREET_PLACEHOLDER": "Street name, building number, floor, apartment...",
+  "STREET_REQUIRED": "Street address is required",
+  "STREET_MIN": "Must be at least 10 characters",
+  "STREET_MAX": "Must not exceed 200 characters",
+
+  "PHONE": "Phone Number",
+  "PHONE_PLACEHOLDER": "01xxxxxxxxx",
+  "PHONE_HINT": "Egyptian numbers only",
+  "PHONE_REQUIRED": "Phone number is required",
+  "PHONE_INVALID": "Enter a valid Egyptian number (e.g. 01012345678)",
+
+  "PAYMENT_TITLE": "Payment Method",
+  "PAYMENT_SUBTITLE": "Choose how you'd like to pay",
+  "CASH": "Cash on Delivery",
+  "CASH_DESC": "Pay when your order arrives at your doorstep",
+  "ONLINE": "Pay Online",
+  "ONLINE_DESC": "Secure payment with Credit/Debit Card via Stripe",
+  "SECURE_TITLE": "Secure & Encrypted",
+  "SECURE_DESC": "Your payment info is protected with 256-bit SSL encryption",
+
+  "SUMMARY": "Order Summary",
+  "ITEMS": "{{count}} items",
+  "EGP": "EGP",
+  "SUBTOTAL": "Subtotal",
+  "SHIPPING": "Shipping",
+  "FREE": "FREE",
+  "TOTAL": "Total",
+  "LOADING": "Loading your cart...",
+  "PLACE_ORDER": "Place Order",
+  "PROCEED_PAYMENT": "Proceed to Payment",
+  "SECURE": "Secure",
+  "FAST_DELIVERY": "Fast Delivery",
+  "EASY_RETURNS": "Easy Returns"
+}
 
 
 

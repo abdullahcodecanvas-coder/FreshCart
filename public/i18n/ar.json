@@ -523,7 +523,60 @@
       "CHANGE_PASSWORD": "تغيير كلمة المرور",
       "TOGGLE_PASSWORD": "إظهار أو إخفاء كلمة المرور"
     }
-  }
+  },"CHECKOUT": {
+  "BREADCRUMB_HOME": "الرئيسية",
+  "BREADCRUMB_CART": "السلة",
+  "BREADCRUMB_CHECKOUT": "إتمام الشراء",
+  "TITLE": "أكمل طلبك",
+  "SUBTITLE": "راجع منتجاتك وأكمل عملية الشراء",
+  "BACK_TO_CART": "الرجوع للسلة",
+
+  "SHIPPING_TITLE": "عنوان الشحن",
+  "SHIPPING_SUBTITLE": "فين تحب نوصّل طلبك؟",
+  "SAVED_ADDRESS": "استخدم عنوان محفوظ",
+  "CLEAR": "مسح",
+  "OR_NEW": "أو اكتب عنوان جديد تحت",
+
+  "CITY": "المدينة",
+  "CITY_PLACEHOLDER": "مثال: القاهرة، الإسكندرية، الجيزة",
+  "CITY_REQUIRED": "المدينة مطلوبة",
+  "CITY_MIN": "المدينة لازم تكون 3 حروف على الأقل",
+
+  "STREET": "عنوان الشارع",
+  "STREET_PLACEHOLDER": "اسم الشارع، رقم العمارة، الدور، الشقة...",
+  "STREET_REQUIRED": "عنوان الشارع مطلوب",
+  "STREET_MIN": "لازم يكون 10 حروف على الأقل",
+  "STREET_MAX": "لازم ما يزيدش عن 200 حرف",
+
+  "PHONE": "رقم التليفون",
+  "PHONE_PLACEHOLDER": "01xxxxxxxxx",
+  "PHONE_HINT": "أرقام مصرية فقط",
+  "PHONE_REQUIRED": "رقم التليفون مطلوب",
+  "PHONE_INVALID": "اكتب رقم مصري صحيح (مثال: 01012345678)",
+
+  "PAYMENT_TITLE": "طريقة الدفع",
+  "PAYMENT_SUBTITLE": "اختار طريقة الدفع المناسبة ليك",
+  "CASH": "الدفع عند الاستلام",
+  "CASH_DESC": "ادفع لما طلبك يوصل لحد باب البيت",
+  "ONLINE": "الدفع أونلاين",
+  "ONLINE_DESC": "دفع آمن بالفيزا أو الماستركارد عن طريق Stripe",
+  "SECURE_TITLE": "آمن ومشفّر",
+  "SECURE_DESC": "بيانات الدفع بتاعتك محمية بتشفير SSL بقوة 256-bit",
+
+  "SUMMARY": "ملخص الطلب",
+  "ITEMS": "{{count}} منتجات",
+  "EGP": "ج.م",
+  "SUBTOTAL": "المجموع الفرعي",
+  "SHIPPING": "الشحن",
+  "FREE": "مجاني",
+  "TOTAL": "الإجمالي",
+  "LOADING": "جاري تحميل السلة...",
+  "PLACE_ORDER": "تأكيد الطلب",
+  "PROCEED_PAYMENT": "المتابعة للدفع",
+  "SECURE": "آمن",
+  "FAST_DELIVERY": "توصيل سريع",
+  "EASY_RETURNS": "إرجاع سهل"
+}
 
 
 }
