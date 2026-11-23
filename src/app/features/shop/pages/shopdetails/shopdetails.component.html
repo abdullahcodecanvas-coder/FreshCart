@@ -1,31 +1,31 @@
 <section class="bg-gray-50 min-h-screen font-[Exo]">
-  <div class="max-w-7xl mx-auto px-4 py-4">
+  <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
 
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+    <nav class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-gray-500 mb-3 sm:mb-4">
       <a routerLink="/home" class="flex items-center gap-1 hover:text-green-600">
         <i class="fa-solid fa-house"></i> Home
       </a>
-      <i class="fa-solid fa-chevron-right text-[10px]"></i>
+      <i class="fa-solid fa-chevron-right text-[9px] sm:text-[10px]"></i>
       <span>{{ product().category?.name }}</span>
-      <i class="fa-solid fa-chevron-right text-[10px]"></i>
+      <i class="fa-solid fa-chevron-right text-[9px] sm:text-[10px]"></i>
       <span>{{ product().subcategory?.[0]?.name }}</span>
-      <i class="fa-solid fa-chevron-right text-[10px]"></i>
-      <span class="text-gray-900 font-medium">{{ product().title }}</span>
+      <i class="fa-solid fa-chevron-right text-[9px] sm:text-[10px]"></i>
+      <span class="text-gray-900 font-medium truncate max-w-[160px] sm:max-w-xs md:max-w-md">{{ product().title }}</span>
     </nav>
 
-    <div class="grid lg:grid-cols-[400px_1fr] gap-6 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] xl:grid-cols-[400px_1fr] gap-4 sm:gap-6 items-start">
 
       <!-- Gallery -->
-      <div class="bg-white rounded-2xl shadow-sm p-4">
-        <div class=" rounded-lg overflow-hidden">
+      <div class="bg-white rounded-2xl shadow-sm p-3 sm:p-4 lg:sticky lg:top-4">
+        <div class="rounded-lg overflow-hidden">
           <img [src]="selectedImage()" [alt]="product().title"
-               class="w-full h-[420px] object-contain mx-auto" />
+               class="w-full h-64 sm:h-80 lg:h-[380px] xl:h-[420px] object-contain mx-auto" />
         </div>
         <div class="flex gap-2 mt-3 overflow-x-auto pb-1">
           @for (img of product().images; track img) {
             <button type="button" (click)="selectImage(img)"
-                    class="shrink-0 w-16 h-20 rounded-md overflow-hidden border-2 transition"
+                    class="shrink-0 w-14 h-16 sm:w-16 sm:h-20 rounded-md overflow-hidden border-2 transition"
                     [class]="selectedImage() === img ? 'border-blue-600' : 'border-transparent'">
               <img [src]="img" alt="" class="w-full h-full object-cover" />
             </button>
@@ -34,8 +34,8 @@
       </div>
 
       <!-- Info -->
-      <div class="bg-white rounded-2xl shadow-sm p-6">
-        <div class="flex gap-2 mb-3">
+      <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
+        <div class="flex flex-wrap gap-2 mb-3">
           <span class="text-xs px-3 py-1 rounded-full bg-green-50 text-green-700">
             {{ product().category?.name }}
           </span>
@@ -44,20 +44,20 @@
           </span>
         </div>
 
-        <h1 class="text-3xl font-bold text-gray-900">{{ product().title }}</h1>
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 break-words">{{ product().title }}</h1>
 
-        <div class="flex items-center gap-2 mt-3">
+        <div class="flex flex-wrap items-center gap-2 mt-3">
           <div class="flex text-yellow-400 text-sm">
-           @for (s of stars; track s) {
-  <i [class]="s <= roundedRating() ? 'fa-solid fa-star' : 'fa-regular fa-star'"></i>
-}
+            @for (s of stars; track s) {
+              <i [class]="s <= roundedRating() ? 'fa-solid fa-star' : 'fa-regular fa-star'"></i>
+            }
           </div>
           <span class="text-xs text-gray-600">
             {{ product().ratingsAverage }} ({{ product().ratingsQuantity }} reviews)
           </span>
         </div>
 
-        <p class="text-3xl font-bold text-gray-900 mt-4">{{ product().price }} EGP</p>
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 mt-4">{{ product().price }} EGP</p>
 
         @if (product().quantity > 0) {
           <span class="inline-flex items-center gap-1.5 mt-4 text-xs px-3 py-1.5 rounded-full bg-green-50 text-green-700">
@@ -69,20 +69,20 @@
           </span>
         }
 
-        <hr class="my-5 border-gray-200" />
+        <hr class="my-4 sm:my-5 border-gray-200" />
 
-        <p class="text-sm text-gray-600">{{ product().description }}</p>
+        <p class="text-sm text-gray-600 leading-relaxed">{{ product().description }}</p>
 
         <!-- Quantity -->
-        <div class="mt-6">
+        <div class="mt-5 sm:mt-6">
           <p class="text-xs text-gray-700 mb-2">Quantity</p>
-          <div class="flex items-center gap-3">
+          <div class="flex flex-wrap items-center gap-3">
             <div class="flex items-center border border-gray-300 rounded-lg">
-              <button type="button" (click)="decrease()" class="px-4 py-3 text-gray-500 hover:text-green-600">
+              <button type="button" (click)="decrease()" class="px-3.5 sm:px-4 py-2.5 sm:py-3 text-gray-500 hover:text-green-600">
                 <i class="fa-solid fa-minus text-xs"></i>
               </button>
               <span class="w-10 text-center text-sm">{{ quantity() }}</span>
-              <button type="button" (click)="increase()" class="px-4 py-3 text-gray-500 hover:text-green-600">
+              <button type="button" (click)="increase()" class="px-3.5 sm:px-4 py-2.5 sm:py-3 text-gray-500 hover:text-green-600">
                 <i class="fa-solid fa-plus text-xs"></i>
               </button>
             </div>
@@ -91,19 +91,19 @@
         </div>
 
         <!-- Total -->
-        <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-4 mt-5">
+        <div class="flex items-center justify-between gap-2 bg-gray-50 rounded-xl px-3 sm:px-4 py-3 sm:py-4 mt-5">
           <span class="text-sm text-gray-700">Total Price:</span>
-          <span class="text-xl font-bold text-green-600">{{ totalPrice() | number:'1.2-2' }} EGP</span>
+          <span class="text-lg sm:text-xl font-bold text-green-600">{{ totalPrice() | number:'1.2-2' }} EGP</span>
         </div>
 
         <!-- Actions -->
-        <div class="grid sm:grid-cols-2 gap-3 mt-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
           <button type="button" (click)="addToCart()"
-                  class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-3.5 rounded-lg shadow-lg shadow-green-600/20 transition">
+                  class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-3 sm:py-3.5 rounded-lg shadow-lg shadow-green-600/20 transition">
             <i class="fa-solid fa-cart-shopping"></i> Add to Cart
           </button>
           <button type="button" (click)="buyNow()"
-                  class="flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white text-sm font-medium py-3.5 rounded-lg transition">
+                  class="flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white text-sm font-medium py-3 sm:py-3.5 rounded-lg transition">
             <i class="fa-solid fa-bolt"></i> Buy Now
           </button>
         </div>
@@ -114,29 +114,29 @@
             <i [class]="isWishlisted() ? 'fa-solid fa-heart text-red-500' : 'fa-regular fa-heart'"></i>
             Add to Wishlist
           </button>
-          <button type="button" class="w-12 border border-gray-300 hover:bg-gray-50 rounded-lg transition">
+          <button type="button" class="w-12 shrink-0 border border-gray-300 hover:bg-gray-50 rounded-lg transition">
             <i class="fa-solid fa-share-nodes"></i>
           </button>
         </div>
 
-        <hr class="my-5 border-gray-200" />
+        <hr class="my-4 sm:my-5 border-gray-200" />
 
         <!-- Perks -->
-        <div class="grid sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+            <span class="w-10 h-10 shrink-0 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
               <i class="fa-solid fa-truck-fast text-sm"></i>
             </span>
             <div><p class="text-xs font-medium">Free Delivery</p><p class="text-[11px] text-gray-500">Orders over $50</p></div>
           </div>
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+            <span class="w-10 h-10 shrink-0 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
               <i class="fa-solid fa-rotate-left text-sm"></i>
             </span>
             <div><p class="text-xs font-medium">30 Days Return</p><p class="text-[11px] text-gray-500">Money back</p></div>
           </div>
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+            <span class="w-10 h-10 shrink-0 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
               <i class="fa-solid fa-shield-halved text-sm"></i>
             </span>
             <div><p class="text-xs font-medium">Secure Payment</p><p class="text-[11px] text-gray-500">100% Protected</p></div>
@@ -146,39 +146,39 @@
     </div>
 
     <!-- Tabs -->
-    <div class="bg-white rounded-2xl shadow-sm mt-8 overflow-hidden">
-      <div class="flex border-b border-gray-200 text-sm">
+    <div class="bg-white rounded-2xl shadow-sm mt-6 sm:mt-8 overflow-hidden">
+      <div class="flex border-b border-gray-200 text-xs sm:text-sm overflow-x-auto">
         <button type="button" (click)="activeTab.set('details')"
-                class="flex items-center gap-2 px-6 py-4 border-b-2 transition"
+                class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b-2 transition whitespace-nowrap"
                 [class]="activeTab() === 'details' ? 'border-green-600 text-green-600 bg-green-50/50' : 'border-transparent text-gray-600'">
           <i class="fa-solid fa-box"></i> Product Details
         </button>
         <button type="button" (click)="activeTab.set('reviews')"
-                class="flex items-center gap-2 px-6 py-4 border-b-2 transition"
+                class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b-2 transition whitespace-nowrap"
                 [class]="activeTab() === 'reviews' ? 'border-green-600 text-green-600 bg-green-50/50' : 'border-transparent text-gray-600'">
           <i class="fa-solid fa-star"></i> Reviews ({{ product().ratingsQuantity }})
         </button>
         <button type="button" (click)="activeTab.set('shipping')"
-                class="flex items-center gap-2 px-6 py-4 border-b-2 transition"
+                class="flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b-2 transition whitespace-nowrap"
                 [class]="activeTab() === 'shipping' ? 'border-green-600 text-green-600 bg-green-50/50' : 'border-transparent text-gray-600'">
           <i class="fa-solid fa-truck"></i> Shipping & Returns
         </button>
       </div>
 
-      <div class="p-6">
+      <div class="p-4 sm:p-6">
         @switch (activeTab()) {
           @case ('details') {
             <h3 class="font-semibold text-gray-900 mb-3">About this Product</h3>
-            <p class="text-sm text-gray-600">{{ product().description }}</p>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ product().description }}</p>
 
-            <div class="grid md:grid-cols-2 gap-5 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mt-5 sm:mt-6">
               <div class="bg-gray-50 rounded-lg p-4">
                 <h4 class="text-sm font-medium mb-3">Product Information</h4>
                 <dl class="space-y-2 text-xs">
-                  <div class="flex justify-between"><dt class="text-gray-500">Category</dt><dd>{{ product().category?.name }}</dd></div>
-                  <div class="flex justify-between"><dt class="text-gray-500">Subcategory</dt><dd>{{ product().subcategory?.[0]?.name }}</dd></div>
-                  <div class="flex justify-between"><dt class="text-gray-500">Brand</dt><dd>{{ product().brand?.name }}</dd></div>
-                  <div class="flex justify-between"><dt class="text-gray-500">Items Sold</dt><dd>{{ product().sold }}+ sold</dd></div>
+                  <div class="flex justify-between gap-3"><dt class="text-gray-500">Category</dt><dd class="text-end">{{ product().category?.name }}</dd></div>
+                  <div class="flex justify-between gap-3"><dt class="text-gray-500">Subcategory</dt><dd class="text-end">{{ product().subcategory?.[0]?.name }}</dd></div>
+                  <div class="flex justify-between gap-3"><dt class="text-gray-500">Brand</dt><dd class="text-end">{{ product().brand?.name }}</dd></div>
+                  <div class="flex justify-between gap-3"><dt class="text-gray-500">Items Sold</dt><dd class="text-end">{{ product().sold }}+ sold</dd></div>
                 </dl>
               </div>
               <div class="bg-gray-50 rounded-lg p-4">
@@ -203,15 +203,16 @@
 
   </div>
 </section>
-<section class="container mx-auto py-2">
 
-<app-section-title 
-  [title]="'SECTIONS20.YOU_MAY_ALSO' | translate" 
-  [highlight]="'SECTIONS20.LIKE' | translate">
-</app-section-title>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-10 py-4">
-  @for (item of otherProducts(); track item._id) {
-    <app-cart-style [item]="item" />
-  }
-</div>
+<section class="container mx-auto px-3 sm:px-4 py-2">
+  <app-section-title
+    [title]="'SECTIONS20.YOU_MAY_ALSO' | translate"
+    [highlight]="'SECTIONS20.LIKE' | translate">
+  </app-section-title>
+
+  <div class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 pb-10 py-4">
+    @for (item of otherProducts(); track item._id) {
+      <app-cart-style [item]="item" />
+    }
+  </div>
 </section>
