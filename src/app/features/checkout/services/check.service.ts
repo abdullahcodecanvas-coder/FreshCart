@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { DOCUMENT, inject, Service } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
@@ -11,13 +11,25 @@ export class CheckService {
     }
  private readonly document = inject(DOCUMENT);
 
+  // Checkoutsession(id: string, data: object): Observable<any> {
+  //   const origin = this.document.location.origin;
+
+  //   return this.httpClient.post(
+  //     `${environment.baseUrl}orders/checkout-session/${id}?url=${origin}`,
+  //     data
+  //   );
+  // }
+
+
   Checkoutsession(id: string, data: object): Observable<any> {
-    const origin = this.document.location.origin;
+  const origin = this.document.location.origin;
 
-    return this.httpClient.post(
-      `${environment.baseUrl}orders/checkout-session/${id}?url=${origin}`,
-      data
-    );
+  const params = new HttpParams().set('url', origin);
+
+  return this.httpClient.post(
+    `${environment.baseUrl}orders/checkout-session/${id}`,
+    data,
+    { params }
+  );
   }
-
 }
